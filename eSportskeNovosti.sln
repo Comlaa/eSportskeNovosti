@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESN-WinForm", "ESN-WinForm\ESN-WinForm.csproj", "{DCD22306-2795-44B5-94AA-B1990917510D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESN-Api", "ESN-Api\ESN-Api.csproj", "{ACCE2337-FEA2-436F-A1AB-842E22F9FC06}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCD22306-2795-44B5-94AA-B1990917510D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCD22306-2795-44B5-94AA-B1990917510D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCD22306-2795-44B5-94AA-B1990917510D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCD22306-2795-44B5-94AA-B1990917510D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACCE2337-FEA2-436F-A1AB-842E22F9FC06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACCE2337-FEA2-436F-A1AB-842E22F9FC06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACCE2337-FEA2-436F-A1AB-842E22F9FC06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACCE2337-FEA2-436F-A1AB-842E22F9FC06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC18C545-0176-40EC-A482-788007D93BA4}
+	EndGlobalSection
+EndGlobal
