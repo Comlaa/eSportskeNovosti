@@ -1,8 +1,8 @@
 ﻿using ESN_Api.Configuration;
-using ESN_Api.Domain;
+using ESN_Api.ESN_Api.dal.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace ESN_Api.Database
+namespace ESN_Api.ESN_Api.dal.Database
 {
     public class ESNDbContext : DbContext
     {

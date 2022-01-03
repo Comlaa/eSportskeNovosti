@@ -1,4 +1,4 @@
-﻿using ESN_Api.Domain;
+﻿using ESN_Api.ESN_Api.dal.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
