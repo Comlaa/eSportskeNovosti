@@ -20,10 +20,10 @@ namespace ESN_Api.Controllers
             return await _userRepository.Get50Users();
         }
 
-        [HttpGet("test")]
-        public string Test()
+        [HttpPut("login")]
+        public async Task<bool> Login([FromBody] LoginVM user)
         {
-            return "test";
+            return await _userRepository.Login(user.Username, user.Password);
         }
     }
 }

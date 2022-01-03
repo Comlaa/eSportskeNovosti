@@ -10,6 +10,8 @@
         public List<ArticleComment> ArticleComments { get; set; }
         public List<SavedArticle> SavedArticles { get; set; }
         public List<ArticleRating> ArticleRatings { get; set; }
+        public string PasswordHash { get; set; }
+        public string PasswordSalt { get; set; }
         public string Username { get; set; }       
         public string Email { get; set; }       
     }

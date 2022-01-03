@@ -20,6 +20,8 @@ namespace ESN_Api.Configuration
                     Email = "desktop@mail.com",
                     GenderId = 1,
                     CreatedAt= new DateTime(2022, 1, 2, 18, 00, 00, DateTimeKind.Utc),
+                    PasswordHash = "ExhCoLc0RVU6e1K2veoRh6dUP4FRE2uyFXAkQrsPYKc=",
+                    PasswordSalt = "ohIp8ucWEgzGRvqMbu3InQ=="
                 },
                 new User()
                 {
@@ -30,6 +32,8 @@ namespace ESN_Api.Configuration
                     Email = "mobile@mail.com",
                     GenderId = 1,
                     CreatedAt= new DateTime(2022, 1, 2, 18, 00, 00, DateTimeKind.Utc),
+                    PasswordHash = "ExhCoLc0RVU6e1K2veoRh6dUP4FRE2uyFXAkQrsPYKc=",
+                    PasswordSalt = "ohIp8ucWEgzGRvqMbu3InQ=="
                 },
                 new User()
                 {
@@ -40,6 +44,8 @@ namespace ESN_Api.Configuration
                     Email = "korisnik@mail.com",
                     GenderId = 1,
                     CreatedAt= new DateTime(2022, 1, 2, 18, 00, 00, DateTimeKind.Utc),
+                    PasswordHash = "ExhCoLc0RVU6e1K2veoRh6dUP4FRE2uyFXAkQrsPYKc=",
+                    PasswordSalt = "ohIp8ucWEgzGRvqMbu3InQ=="
                 },
         });
 
