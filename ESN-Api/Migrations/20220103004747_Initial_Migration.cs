@@ -247,8 +247,8 @@ namespace ESN_Api.Migrations
                 columns: new[] { "Id", "CreatedAt", "ModifedAt", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 2, 17, 54, 8, 627, DateTimeKind.Utc).AddTicks(4457), "Male" },
-                    { 2, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 2, 17, 54, 8, 627, DateTimeKind.Utc).AddTicks(4462), "Female" }
+                    { 1, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 3, 0, 47, 47, 504, DateTimeKind.Utc).AddTicks(9761), "Male" },
+                    { 2, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 3, 0, 47, 47, 504, DateTimeKind.Utc).AddTicks(9766), "Female" }
                 });
 
             migrationBuilder.InsertData(
@@ -256,40 +256,40 @@ namespace ESN_Api.Migrations
                 columns: new[] { "Id", "CreatedAt", "ModifedAt", "Name", "Permissions" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 2, 17, 54, 8, 627, DateTimeKind.Utc).AddTicks(4833), "Admin", "Read, Write, Edit, Create, Delete" },
-                    { 2, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 2, 17, 54, 8, 627, DateTimeKind.Utc).AddTicks(4835), "Editor", "Read, Write, Edit" },
-                    { 3, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 2, 17, 54, 8, 627, DateTimeKind.Utc).AddTicks(4836), "User", "Read" }
+                    { 1, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(110), "Admin", "Read, Write, Edit, Create, Delete" },
+                    { 2, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(112), "Editor", "Read, Write, Edit" },
+                    { 3, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(113), "User", "Read" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "Email", "FirstName", "GenderId", "Lastname", "ModifedAt", "Username" },
-                values: new object[] { 1, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), "desktop@mail.com", "desktop", 1, "", new DateTime(2022, 1, 2, 17, 54, 8, 627, DateTimeKind.Utc).AddTicks(5061), "desktop" });
+                values: new object[] { 1, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), "desktop@mail.com", "desktop", 1, "", new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(345), "desktop" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "Email", "FirstName", "GenderId", "Lastname", "ModifedAt", "Username" },
-                values: new object[] { 2, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), "mobile@mail.com", "mobile", 1, "", new DateTime(2022, 1, 2, 17, 54, 8, 627, DateTimeKind.Utc).AddTicks(5063), "mobile" });
+                values: new object[] { 2, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), "mobile@mail.com", "mobile", 1, "", new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(347), "mobile" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "Email", "FirstName", "GenderId", "Lastname", "ModifedAt", "Username" },
-                values: new object[] { 3, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), "korisnik@mail.com", "korisnik", 1, "", new DateTime(2022, 1, 2, 17, 54, 8, 627, DateTimeKind.Utc).AddTicks(5065), "korisnik" });
+                values: new object[] { 3, new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc), "korisnik@mail.com", "korisnik", 1, "", new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(348), "korisnik" });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "Id", "CreatedAt", "ModifedAt", "RoleId", "UserId" },
-                values: new object[] { 1, new DateTime(2022, 1, 2, 17, 54, 8, 628, DateTimeKind.Utc).AddTicks(692), new DateTime(2022, 1, 2, 17, 54, 8, 628, DateTimeKind.Utc).AddTicks(692), 1, 1 });
+                values: new object[] { 1, new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(6021), new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(6021), 1, 1 });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "Id", "CreatedAt", "ModifedAt", "RoleId", "UserId" },
-                values: new object[] { 2, new DateTime(2022, 1, 2, 17, 54, 8, 628, DateTimeKind.Utc).AddTicks(696), new DateTime(2022, 1, 2, 17, 54, 8, 628, DateTimeKind.Utc).AddTicks(696), 1, 2 });
+                values: new object[] { 2, new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(6029), new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(6029), 1, 2 });
 
             migrationBuilder.InsertData(
                 table: "UserRoles",
                 columns: new[] { "Id", "CreatedAt", "ModifedAt", "RoleId", "UserId" },
-                values: new object[] { 3, new DateTime(2022, 1, 2, 17, 54, 8, 628, DateTimeKind.Utc).AddTicks(697), new DateTime(2022, 1, 2, 17, 54, 8, 628, DateTimeKind.Utc).AddTicks(697), 3, 3 });
+                values: new object[] { 3, new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(6030), new DateTime(2022, 1, 3, 0, 47, 47, 505, DateTimeKind.Utc).AddTicks(6030), 3, 3 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ArticleComments_ArticleId",

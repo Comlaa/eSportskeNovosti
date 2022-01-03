@@ -1,4 +1,4 @@
-﻿namespace ESN_Api.Domain
+﻿namespace ESN_Api.ESN_Api.dal.Domain
 {
     public class Article : BaseEntity
     {

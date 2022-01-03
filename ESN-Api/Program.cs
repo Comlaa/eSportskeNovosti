@@ -1,4 +1,6 @@
-using ESN_Api.Database;
+using ESN_Api.ESN_Api.dal.Database;
+using ESN_Api.ESN_Api.dal.Repositories;
+using ESN_Api.ESN_Api.dal.Repositories.Default;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,11 +14,18 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ESNDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("eSportskeNovosti"));
-
+    options.UseSqlServer(builder.Configuration.GetConnectionString("eSportskeNovosti"), options => options.EnableRetryOnFailure());
 });
 
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
 var app = builder.Build();
+
+using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+{
+    scope.ServiceProvider.GetService<ESNDbContext>().Database.Migrate();
+}
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
