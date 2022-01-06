@@ -8,7 +8,7 @@ namespace ESN_Api.ESN_Api.dal.ViewModels
         public string Name { get; set; }
         public string Email { get; set; }
         public string Username { get; set; }
-        public int GenderId { get; set; }
+        public string Gender { get; set; }
 
         public UserVM()
         {
@@ -21,7 +21,7 @@ namespace ESN_Api.ESN_Api.dal.ViewModels
             Name = user.FirstName + user.Lastname;
             Email = user.Email;
             Username = user.Username;
-            GenderId = user.GenderId;
+            Gender = user.GenderId.Equals(1) ? "Musko" : "Zensko" ;
         }
     }
 }

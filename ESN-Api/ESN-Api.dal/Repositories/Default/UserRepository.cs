@@ -19,6 +19,11 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             return await _context.Users.Take(50).Select(user => new UserVM(user)).ToListAsync();
         }
 
+        public async Task<List<UserVM>> GetUsersByUsername(string username)
+        {
+            return await _context.Users.Where(x => x.Username.Contains(username)).Select(user => new UserVM(user)).ToListAsync();
+        }
+
         public async Task<bool> Login(string username, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(user => user.Username.Equals(username));

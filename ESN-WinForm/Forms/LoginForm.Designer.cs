@@ -32,12 +32,12 @@
             this.AppName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Username = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.TextBox();
             this.LoginBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,9 +47,10 @@
             this.AppName.BackColor = System.Drawing.Color.Transparent;
             this.AppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
             this.AppName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AppName.Location = new System.Drawing.Point(81, 42);
+            this.AppName.Location = new System.Drawing.Point(108, 52);
+            this.AppName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AppName.Name = "AppName";
-            this.AppName.Size = new System.Drawing.Size(214, 31);
+            this.AppName.Size = new System.Drawing.Size(265, 39);
             this.AppName.TabIndex = 0;
             this.AppName.Text = "SportskeNovosti";
             // 
@@ -59,9 +60,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
-            this.label1.Location = new System.Drawing.Point(60, 42);
+            this.label1.Location = new System.Drawing.Point(80, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 31);
+            this.label1.Size = new System.Drawing.Size(36, 39);
             this.label1.TabIndex = 1;
             this.label1.Text = "e";
             // 
@@ -71,81 +73,88 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
-            this.label2.Location = new System.Drawing.Point(174, 68);
+            this.label2.Location = new System.Drawing.Point(232, 84);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 31);
+            this.label2.Size = new System.Drawing.Size(203, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "AdminPortal";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::ESN_WinForm.Properties.Resources.Login_banner;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(430, 90);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(671, 446);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.WaitOnLoad = true;
             // 
             // Username
             // 
             this.Username.BackColor = System.Drawing.SystemColors.Window;
             this.Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Username.Location = new System.Drawing.Point(66, 245);
+            this.Username.Location = new System.Drawing.Point(88, 302);
+            this.Username.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(269, 20);
+            this.Username.Size = new System.Drawing.Size(358, 22);
             this.Username.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(63, 229);
+            this.label3.Location = new System.Drawing.Point(84, 282);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.Size = new System.Drawing.Size(94, 16);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Username";
+            this.label3.Text = "Korisnicko ime";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(63, 281);
+            this.label4.Location = new System.Drawing.Point(84, 346);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.Size = new System.Drawing.Size(53, 16);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Password";
+            this.label4.Text = "Lozinka";
             // 
             // Password
             // 
             this.Password.BackColor = System.Drawing.SystemColors.Window;
             this.Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Password.Location = new System.Drawing.Point(66, 297);
+            this.Password.Location = new System.Drawing.Point(88, 366);
+            this.Password.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Password.Name = "Password";
             this.Password.PasswordChar = '*';
-            this.Password.Size = new System.Drawing.Size(269, 20);
+            this.Password.Size = new System.Drawing.Size(358, 22);
             this.Password.TabIndex = 6;
             // 
             // LoginBtn
             // 
             this.LoginBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.LoginBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.LoginBtn.Location = new System.Drawing.Point(180, 335);
+            this.LoginBtn.Location = new System.Drawing.Point(240, 412);
+            this.LoginBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LoginBtn.Name = "LoginBtn";
-            this.LoginBtn.Size = new System.Drawing.Size(155, 29);
+            this.LoginBtn.Size = new System.Drawing.Size(207, 42);
             this.LoginBtn.TabIndex = 8;
-            this.LoginBtn.Text = "Login";
+            this.LoginBtn.Text = "Prijava";
             this.LoginBtn.UseVisualStyleBackColor = false;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::ESN_WinForm.Properties.Resources.Login_banner;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(481, 125);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(638, 412);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.WaitOnLoad = true;
+            // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1125, 632);
+            this.ClientSize = new System.Drawing.Size(1132, 603);
             this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Password);
@@ -156,6 +165,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AppName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LoginForm";
             this.Text = "ESN - Login ";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

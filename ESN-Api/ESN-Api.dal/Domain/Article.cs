@@ -1,4 +1,6 @@
-﻿namespace ESN_Api.ESN_Api.dal.Domain
+﻿using ESN_Api.ESN_Api.dal.DTO;
+
+namespace ESN_Api.ESN_Api.dal.Domain
 {
     public class Article : BaseEntity
     {
@@ -10,5 +12,18 @@
         public List<ArticleComment> ArticleComments { get; set; }
         public List<SavedArticle> SavedArticles { get; set; }
         public List<ArticleRating> ArticleRatings { get; set; }
+
+        public Article()
+        {
+
+        }
+
+        public Article(ArticleDTO article)
+        {
+            Title = article.Title;
+            Text = article.Text;
+            Tags = article.Tags;
+            CategoryId = article.CategoryId;
+        }
     }
 }

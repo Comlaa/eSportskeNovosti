@@ -1,6 +1,6 @@
-﻿using ESN_WinForm.ViewModels;
+﻿using ESN_WinForm.DTO;
+using ESN_WinForm.Helpers;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -12,9 +12,14 @@ namespace ESN_WinForm.Services
 
         public static async Task<string> GetAllUsers()
         {
+            return await HTTPClient.Get(baseURL, "users");
+        }
+
+        public static async Task<string> GetAllUsersByUsername(string search)
+        {
             using (HttpClient client = new HttpClient())
             {
-                using (HttpResponseMessage response = await client.GetAsync(baseURL + "users"))
+                using (HttpResponseMessage response = await client.GetAsync(baseURL + "users-by-username?username="+search))
                 {
                     using (HttpContent content = response.Content)
                     {
@@ -23,10 +28,10 @@ namespace ESN_WinForm.Services
                 }
             }
         }
-
+        
         public static async Task<bool> Login(string username, string password)
         {
-            LoginVM loginData = new LoginVM { Username = username, Password = password };   
+            LoginDTO loginData = new LoginDTO { Username = username, Password = password };   
 
             using (HttpClient client = new HttpClient())
             {

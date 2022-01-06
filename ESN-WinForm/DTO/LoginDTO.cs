@@ -1,6 +1,6 @@
-﻿namespace ESN_WinForm.ViewModels
+﻿namespace ESN_WinForm.DTO
 {
-    public class LoginVM
+    public class LoginDTO
     {
         public string Username { get; set; }
         public string Password { get; set; }
