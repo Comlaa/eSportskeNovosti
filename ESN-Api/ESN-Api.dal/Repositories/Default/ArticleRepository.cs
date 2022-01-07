@@ -30,18 +30,20 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             .Take(50).Select(article => 
             new ArticleVM(article, article.Category.Name, 
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(), 
-            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Average(x => x.Rating))).ToListAsync();
+            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average())).ToListAsync();
         }
 
         public async Task<List<ArticleVM>> GetArticleByTitle(string title)
         {
+            
+
             return await _context.Articles.Where(a => a.Title.Contains(title)).Include(a => a.Category)
             .Include(a => a.ArticleComments)
             .Include(a => a.ArticleRatings)
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
-            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Average(x => x.Rating))).ToListAsync();
+            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average())).ToListAsync();
         }
     }
 }

@@ -19,8 +19,6 @@ namespace ESN_WinForm
             {
                 var form = new HomeForm();
                 form.ShowDialog();
-
-                Close();
             }
         }
     }
