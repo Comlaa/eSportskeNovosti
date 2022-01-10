@@ -36,8 +36,8 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
         public async Task<List<ArticleVM>> GetArticleByTitle(string title)
         {
             
-
-            return await _context.Articles.Where(a => a.Title.Contains(title)).Include(a => a.Category)
+            return await _context.Articles.Where(a => a.Title.Contains(title))
+            .Include(a => a.Category)
             .Include(a => a.ArticleComments)
             .Include(a => a.ArticleRatings)
             .Take(50).Select(article =>

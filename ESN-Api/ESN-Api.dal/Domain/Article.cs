@@ -7,7 +7,9 @@ namespace ESN_Api.ESN_Api.dal.Domain
         public string Title { get; set; }
         public string Text { get; set; }
         public string Tags { get; set; }
-        public int CategoryId { get; set; }       
+        public int CategoryId { get; set; }
+        public DateTime Date { get; set; }
+        public bool AllowComments { get; set; }
         public Category Category { get; set; }
         public List<ArticleComment> ArticleComments { get; set; }
         public List<SavedArticle> SavedArticles { get; set; }
@@ -24,6 +26,8 @@ namespace ESN_Api.ESN_Api.dal.Domain
             Text = article.Text;
             Tags = article.Tags;
             CategoryId = article.CategoryId;
+            Date = article.Date;
+            AllowComments = article.AllowComments;
         }
     }
 }

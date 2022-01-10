@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ESN_WinForm.Services;
+using Newtonsoft.Json;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -21,7 +22,7 @@ namespace ESN_WinForm.Helpers
             }
         }
         
-        public static async Task<bool> Put(string baseUrl, string endpoint, object data)
+        public static async Task<string> Put(string baseUrl, string endpoint, object data)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -29,7 +30,7 @@ namespace ESN_WinForm.Helpers
             }
         }
 
-        public static async Task<bool> Post(string baseUrl, string endpoint, object data)
+        public static async Task<string> Post(string baseUrl, string endpoint, object data)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -37,14 +38,13 @@ namespace ESN_WinForm.Helpers
             }
         }
 
-        private static async Task<bool> BaseHttpClient(Task<HttpResponseMessage> request)
+        private static async Task<string> BaseHttpClient(Task<HttpResponseMessage> request)
         {
             using (HttpResponseMessage response = await request)
             {
                 using (HttpContent content = response.Content)
                 {
-                    var loginResponse = await content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<bool>(loginResponse);
+                    return await content.ReadAsStringAsync();
                 }
             }
         }

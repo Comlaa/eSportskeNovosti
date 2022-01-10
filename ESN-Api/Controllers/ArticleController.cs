@@ -17,9 +17,10 @@ namespace ESN_Api.Controllers
         }
 
         [HttpPost("article")]
-        public async Task<bool> AddArticle([FromBody] ArticleDTO article)
+        public async Task<string> AddArticle([FromBody] ArticleDTO article)
         {
-           return await _articleRepository.AddArticle(article); 
+           await _articleRepository.AddArticle(article);
+            return "success";
         }
 
         [HttpGet("articles")]

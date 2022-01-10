@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ESN_WinForm.Forms.Articles;
+using System;
 using System.Windows.Forms;
 
 namespace ESN_WinForm.Forms
@@ -16,6 +17,13 @@ namespace ESN_WinForm.Forms
             form.ShowDialog();
 
             Close();
+        }
+
+        private void DodajBtn_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            AddArticles add = new AddArticles();
+            add.ShowDialog();
         }
     }
 }

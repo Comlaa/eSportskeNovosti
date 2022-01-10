@@ -1,4 +1,5 @@
 ﻿using ESN_WinForm.Helpers;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 
 namespace ESN_WinForm.Services
@@ -16,8 +17,8 @@ namespace ESN_WinForm.Services
         {
             return await HTTPClient.Get(baseURL, "articles-by-title?title=", search);
         }
-        
-        public static async Task<bool> Add(ArticleDTO article)
+
+        public static async Task<string> Add(ArticleDTO article)
         {
             return await HTTPClient.Post(baseURL, "article", article);
         }
