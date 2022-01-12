@@ -77,7 +77,7 @@
             this.VijestiBtn.Name = "VijestiBtn";
             this.VijestiBtn.Size = new System.Drawing.Size(289, 49);
             this.VijestiBtn.TabIndex = 9;
-            this.VijestiBtn.Text = "Vijesti";
+            this.VijestiBtn.Text = "Članci";
             this.VijestiBtn.UseVisualStyleBackColor = false;
             // 
             // KorisniciBtn

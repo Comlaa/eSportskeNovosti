@@ -1,4 +1,4 @@
-﻿using ESN_WinForm.Forms.Articles;
+﻿using ESN_WinForm.Forms;
 using System;
 using System.Windows.Forms;
 
@@ -14,7 +14,7 @@ namespace ESN_WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddArticles());
+            Application.Run(new ArticlesForm());
         }
     }
 }

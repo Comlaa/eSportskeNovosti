@@ -51,9 +51,9 @@
             this.label1.Location = new System.Drawing.Point(23, 31);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 29);
+            this.label1.Size = new System.Drawing.Size(164, 29);
             this.label1.TabIndex = 36;
-            this.label1.Text = "Dodaj vijest";
+            this.label1.Text = "Dodaj članak";
             // 
             // DodajBtn
             // 

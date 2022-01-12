@@ -19,7 +19,7 @@ namespace ESN_Api.Controllers
         [HttpPost("article")]
         public async Task<string> AddArticle([FromBody] ArticleDTO article)
         {
-           await _articleRepository.AddArticle(article);
+            await _articleRepository.AddArticle(article);
             return "success";
         }
 
@@ -29,10 +29,28 @@ namespace ESN_Api.Controllers
             return await _articleRepository.Get50Articles();
         }
 
+        [HttpGet("article")]
+        public async Task<ArticleDTO> GetArticle(int articleId)
+        {
+            return await _articleRepository.GetArticleById(articleId);
+        }
+
         [HttpGet("articles-by-title")]
         public async Task<List<ArticleVM>> GetUsersByUsername(string title)
         {
             return await _articleRepository.GetArticleByTitle(title);
+        }
+
+        [HttpDelete("article")]
+        public async Task DeleteArticle(int articleId)
+        {
+            await _articleRepository.DeleteArticle(articleId);
+        }
+
+        [HttpPut("article")]
+        public async Task EditArticle([FromBody] ArticleDTO newArticle)
+        {
+            await _articleRepository.EditArticle(newArticle);
         }
     }
 }

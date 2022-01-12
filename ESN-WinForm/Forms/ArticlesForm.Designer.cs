@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArticlesForm));
-            this.KorisniciTabela = new System.Windows.Forms.DataGridView();
+            this.VijestiTabela = new System.Windows.Forms.DataGridView();
             this.DodajBtn = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PretraziBtn = new System.Windows.Forms.PictureBox();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.UrediBtn = new System.Windows.Forms.Button();
             this.KomentariBtn = new System.Windows.Forms.Button();
             this.ObrisiBtn = new System.Windows.Forms.Button();
             this.NazadBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.KorisniciTabela)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VijestiTabela)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PretraziBtn)).BeginInit();
             this.SuspendLayout();
             // 
-            // KorisniciTabela
+            // VijestiTabela
             // 
-            this.KorisniciTabela.AllowUserToAddRows = false;
-            this.KorisniciTabela.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.KorisniciTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.KorisniciTabela.GridColor = System.Drawing.SystemColors.ControlLightLight;
-            this.KorisniciTabela.Location = new System.Drawing.Point(304, 107);
-            this.KorisniciTabela.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.KorisniciTabela.Name = "KorisniciTabela";
-            this.KorisniciTabela.RowHeadersWidth = 51;
-            this.KorisniciTabela.RowTemplate.Height = 24;
-            this.KorisniciTabela.Size = new System.Drawing.Size(514, 292);
-            this.KorisniciTabela.TabIndex = 31;
+            this.VijestiTabela.AllowUserToAddRows = false;
+            this.VijestiTabela.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.VijestiTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.VijestiTabela.GridColor = System.Drawing.SystemColors.ControlLightLight;
+            this.VijestiTabela.Location = new System.Drawing.Point(304, 107);
+            this.VijestiTabela.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VijestiTabela.Name = "VijestiTabela";
+            this.VijestiTabela.RowHeadersWidth = 51;
+            this.VijestiTabela.RowTemplate.Height = 24;
+            this.VijestiTabela.Size = new System.Drawing.Size(514, 292);
+            this.VijestiTabela.TabIndex = 31;
             // 
             // DodajBtn
             // 
@@ -69,18 +69,19 @@
             this.DodajBtn.UseVisualStyleBackColor = false;
             this.DodajBtn.Click += new System.EventHandler(this.DodajBtn_Click);
             // 
-            // pictureBox2
+            // PretraziBtn
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Image = global::ESN_WinForm.Properties.Resources.search;
-            this.pictureBox2.Location = new System.Drawing.Point(304, 37);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(28, 29);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
+            this.PretraziBtn.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.PretraziBtn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PretraziBtn.Image = global::ESN_WinForm.Properties.Resources.search;
+            this.PretraziBtn.Location = new System.Drawing.Point(304, 37);
+            this.PretraziBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PretraziBtn.Name = "PretraziBtn";
+            this.PretraziBtn.Size = new System.Drawing.Size(28, 29);
+            this.PretraziBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PretraziBtn.TabIndex = 29;
+            this.PretraziBtn.TabStop = false;
+            this.PretraziBtn.Click += new System.EventHandler(this.PretraziBtn_Click_1);
             // 
             // SearchBox
             // 
@@ -93,6 +94,7 @@
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(488, 29);
             this.SearchBox.TabIndex = 28;
+            this.SearchBox.TextChanged += new System.EventHandler(this.SearchBox_TextChanged);
             // 
             // label1
             // 
@@ -117,6 +119,7 @@
             this.UrediBtn.TabIndex = 33;
             this.UrediBtn.Text = "Uredi";
             this.UrediBtn.UseVisualStyleBackColor = false;
+            this.UrediBtn.Click += new System.EventHandler(this.UrediBtn_Click);
             // 
             // KomentariBtn
             // 
@@ -141,6 +144,7 @@
             this.ObrisiBtn.TabIndex = 34;
             this.ObrisiBtn.Text = "Obrisi";
             this.ObrisiBtn.UseVisualStyleBackColor = false;
+            this.ObrisiBtn.Click += new System.EventHandler(this.ObrisiBtn_Click);
             // 
             // NazadBtn
             // 
@@ -166,17 +170,17 @@
             this.Controls.Add(this.ObrisiBtn);
             this.Controls.Add(this.UrediBtn);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.KorisniciTabela);
+            this.Controls.Add(this.VijestiTabela);
             this.Controls.Add(this.DodajBtn);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.PretraziBtn);
             this.Controls.Add(this.SearchBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ArticlesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ArticlesForm";
-            ((System.ComponentModel.ISupportInitialize)(this.KorisniciTabela)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VijestiTabela)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PretraziBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,9 +188,9 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView KorisniciTabela;
+        private System.Windows.Forms.DataGridView VijestiTabela;
         private System.Windows.Forms.Button DodajBtn;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox PretraziBtn;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button UrediBtn;

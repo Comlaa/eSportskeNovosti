@@ -1,16 +1,14 @@
-﻿using ESN_WinForm.Forms.Articles;
-using ESN_WinForm.Services;
+﻿using ESN_WinForm.Services;
 using Newtonsoft.Json;
 using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace ESN_WinForm.Forms
+namespace ESN_WinForm.Forms.Categories
 {
-    public partial class ArticlesForm : Form
+    public partial class CategoriesForm : Form
     {
-        public static int ArticleId;
-        public ArticlesForm()
+        public CategoriesForm()
         {
             InitializeComponent();
             PopulateTable();
@@ -23,13 +21,6 @@ namespace ESN_WinForm.Forms
             this.Visible = false;
         }
 
-        private void DodajBtn_Click(object sender, EventArgs e)
-        {
-            AddArticles add = new AddArticles();
-            add.ShowDialog();
-            this.Visible = false;
-        }
-
         private async void PopulateTable()
         {
             var response = await ArticleService.GetAllArticles();
@@ -37,7 +28,7 @@ namespace ESN_WinForm.Forms
             VijestiTabela.DataSource = dataTable;
         }
 
-        private void PretraziBtn_Click_1(object sender, EventArgs e)
+        private void PretraziBtn_Click(object sender, EventArgs e)
         {
             SearchBox_TextChanged(null, null);
         }
@@ -62,11 +53,12 @@ namespace ESN_WinForm.Forms
 
         private void UrediBtn_Click(object sender, EventArgs e)
         {
-            var selectedArticle = VijestiTabela.SelectedRows[0].DataBoundItem as DataRowView;
-            ArticleId = int.Parse(selectedArticle.Row.ItemArray[0].ToString());
+            //var selectedArticle = VijestiTabela.SelectedRows[0].DataBoundItem as DataRowView;
+            //ArticleId = int.Parse(selectedArticle.Row.ItemArray[0].ToString());
 
-            EditArticle editArticle = new EditArticle();
-            editArticle.ShowDialog();
+            //EditArticle editArticle = new EditArticle();
+            //editArticle.ShowDialog();
         }
+
     }
 }
