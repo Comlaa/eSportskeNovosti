@@ -42,6 +42,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
                 article.AllowComments = _article.AllowComments;
                 article.Tags = _article.Tags;
                 article.Date = _article.Date;
+                article.CategoryId = _article.CategoryId;
 
                 _context.Update(article);
                 await _context.SaveChangesAsync();

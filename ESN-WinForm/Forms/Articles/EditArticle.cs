@@ -8,6 +8,7 @@ namespace ESN_WinForm.Forms.Articles
     public partial class EditArticle : Form
     {
         private ArticleDTO article { get; set; }
+        private CategoryDTO[] categories { get; set; }
         public EditArticle()
         {
             InitializeComponent();
@@ -25,11 +26,26 @@ namespace ESN_WinForm.Forms.Articles
                 Datum.Value = article.Date;
                 Tagovi.Text = article.Tags;
                 Komentari.Checked = article.AllowComments;
+
+                categories = JsonConvert.DeserializeObject<CategoryDTO[]>(await CategoryService.GetAllCategories());
+                foreach (var category in categories)
+                {
+                    Kategorije.Items.Add(category.Name);
+                    if (category.Id.Equals(article.CategoryId))
+                        Kategorije.SelectedItem = category.Name;
+                }
+
             }
         }
 
         private async void DodajBtn_Click(object sender, EventArgs e)
         {
+            var categoryId = 1;
+            foreach (var category in categories)
+            {
+                if (category.Name.Equals(Kategorije.SelectedItem.ToString()))
+                    categoryId = category.Id;
+            }
             ArticleDTO _article = new ArticleDTO
             {
                 Id = article.Id,
@@ -38,7 +54,7 @@ namespace ESN_WinForm.Forms.Articles
                 Tags = Tagovi.Text,
                 AllowComments = Komentari.Checked,
                 Date = Datum.Value,
-                CategoryId = 1
+                CategoryId = categoryId
             };
             await ArticleService.Edit(_article);
             NazadBtn_Click_1(null, null);

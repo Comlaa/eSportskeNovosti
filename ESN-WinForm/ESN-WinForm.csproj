@@ -103,6 +103,7 @@
       <DependentUpon>UsersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="Helpers\ConvertImage.cs" />
     <Compile Include="Helpers\HTTPClient.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,5 @@
 ﻿using ESN_WinForm.Services;
+using Newtonsoft.Json;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -7,17 +8,36 @@ namespace ESN_WinForm.Forms.Articles
 {
     public partial class AddArticles : Form
     {
+        private CategoryDTO[] categories { get; set; }
         public AddArticles()
         {
             InitializeComponent();
             Tekst_Leave(null, null);
             Naziv_Leave(null, null);
             Tagovi_Leave(null, null);
+            PopulateCategories();
             Datum.Text = DateTime.Now.ToString();
+        }
+
+        private async void PopulateCategories()
+        {
+            categories = JsonConvert.DeserializeObject<CategoryDTO[]>(await CategoryService.GetAllCategories());
+            foreach (var category in categories)
+            {
+                Kategorije.Items.Add(category.Name);
+            }
+            Kategorije.SelectedIndex = 0;
         }
 
         private async void DodajBtn_Click(object sender, EventArgs e)
         {
+            var categoryId = 1;
+            foreach (var category in categories)
+            {
+                if (category.Name.Equals(Kategorije.SelectedItem.ToString()))
+                    categoryId = category.Id;
+            }
+
             ArticleDTO article = new ArticleDTO
             {
                 Title = Naziv.Text,
@@ -25,7 +45,7 @@ namespace ESN_WinForm.Forms.Articles
                 Tags = Tagovi.Text,
                 AllowComments = Komentari.Checked,
                 Date = Datum.Value,
-                CategoryId = 1
+                CategoryId = categoryId
             };
             await ArticleService.Add(article);
             NazadBtn_Click(null, null);
