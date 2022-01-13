@@ -1,6 +1,8 @@
-﻿using ESN_WinForm.Services;
+﻿using ESN_WinForm.Helpers;
+using ESN_WinForm.Services;
 using Newtonsoft.Json;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace ESN_WinForm.Forms.Articles
@@ -26,6 +28,7 @@ namespace ESN_WinForm.Forms.Articles
                 Datum.Value = article.Date;
                 Tagovi.Text = article.Tags;
                 Komentari.Checked = article.AllowComments;
+                slika.Image = ConvertImage.ConvertBase64ToImage(article.Picture);
 
                 categories = JsonConvert.DeserializeObject<CategoryDTO[]>(await CategoryService.GetAllCategories());
                 foreach (var category in categories)
@@ -54,7 +57,8 @@ namespace ESN_WinForm.Forms.Articles
                 Tags = Tagovi.Text,
                 AllowComments = Komentari.Checked,
                 Date = Datum.Value,
-                CategoryId = categoryId
+                CategoryId = categoryId,
+                Picture = ConvertImage.ConvertImageToBase64(slika.Image)
             };
             await ArticleService.Edit(_article);
             NazadBtn_Click_1(null, null);
@@ -63,6 +67,18 @@ namespace ESN_WinForm.Forms.Articles
         private void NazadBtn_Click_1(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+        }
+
+        private void slika_Click(object sender, EventArgs e)
+        {
+            PretraziSliku.Title = "Open Image file";
+            PretraziSliku.Filter = "Image Files(*.jpeg;*.bmp;*.png;*.jpg)|*.jpeg;*.bmp;*.png;*.jpg";
+
+            if (PretraziSliku.ShowDialog() == DialogResult.OK)
+            {
+                slika.Image = Image.FromFile(PretraziSliku.FileName);
+            }
+            PretraziSliku.Dispose();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace ESN_Api.ESN_Api.dal.ViewModels
         public List<string> ArticleComments { get; set; }
         public double ArticleRating { get; set; }
         public string Comments { get; set; }
+        public string Picture { get; set; }
 
         public ArticleVM()
         {
@@ -24,6 +25,7 @@ namespace ESN_Api.ESN_Api.dal.ViewModels
             Title = article.Title;
             Text = article.Text;
             Tags = article.Tags;
+            Picture = article.Picture;
             Category = category;
             ArticleComments = comments;
             ArticleRating = rating;

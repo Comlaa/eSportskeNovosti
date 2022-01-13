@@ -43,6 +43,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
                 article.Tags = _article.Tags;
                 article.Date = _article.Date;
                 article.CategoryId = _article.CategoryId;
+                article.Picture = _article.Picture;
 
                 _context.Update(article);
                 await _context.SaveChangesAsync();

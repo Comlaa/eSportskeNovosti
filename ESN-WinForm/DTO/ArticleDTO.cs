@@ -11,13 +11,14 @@ namespace ESN_WinForm.Services
         public DateTime Date { get; set; }
         public bool AllowComments { get; set; }
         public int CategoryId { get; set; }
+        public string Picture { get; set; }
 
         public ArticleDTO()
         {
 
         }
 
-        public ArticleDTO(string title, string text, string tags, DateTime date, bool comments, int categoryId)
+        public ArticleDTO(string title, string text, string tags, DateTime date, bool comments, int categoryId, string picture)
         {
             Title = title;
             Text = text;
@@ -25,6 +26,7 @@ namespace ESN_WinForm.Services
             Date = date;
             AllowComments = comments;
             CategoryId = categoryId;
+            Picture = picture;
         }
     }
 }

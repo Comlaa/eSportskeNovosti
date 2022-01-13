@@ -1,4 +1,5 @@
-﻿using ESN_WinForm.Services;
+﻿using ESN_WinForm.Helpers;
+using ESN_WinForm.Services;
 using Newtonsoft.Json;
 using System;
 using System.Drawing;
@@ -45,7 +46,8 @@ namespace ESN_WinForm.Forms.Articles
                 Tags = Tagovi.Text,
                 AllowComments = Komentari.Checked,
                 Date = Datum.Value,
-                CategoryId = categoryId
+                CategoryId = categoryId,
+                Picture = ConvertImage.ConvertImageToBase64(slika.Image)
             };
             await ArticleService.Add(article);
             NazadBtn_Click(null, null);

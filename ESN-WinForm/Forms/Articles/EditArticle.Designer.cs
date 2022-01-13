@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.DodajBtn = new System.Windows.Forms.Button();
             this.slika = new System.Windows.Forms.PictureBox();
+            this.PretraziSliku = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.slika)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,6 +163,11 @@
             this.slika.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.slika.TabIndex = 52;
             this.slika.TabStop = false;
+            this.slika.Click += new System.EventHandler(this.slika_Click);
+            // 
+            // PretraziSliku
+            // 
+            this.PretraziSliku.FileName = "PretraziSliku";
             // 
             // EditArticle
             // 
@@ -200,5 +206,6 @@
         private System.Windows.Forms.Button NazadBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button DodajBtn;
+        private System.Windows.Forms.OpenFileDialog PretraziSliku;
     }
 }

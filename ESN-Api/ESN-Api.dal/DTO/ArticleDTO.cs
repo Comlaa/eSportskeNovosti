@@ -11,6 +11,7 @@ namespace ESN_Api.ESN_Api.dal.DTO
         public DateTime Date { get; set; }
         public bool AllowComments { get; set; }
         public int CategoryId { get; set; }
+        public string Picture { get; set; }
 
         public ArticleDTO()
         {
@@ -26,6 +27,7 @@ namespace ESN_Api.ESN_Api.dal.DTO
             CategoryId = article.CategoryId;
             Date = article.Date;
             AllowComments = article.AllowComments;
+            Picture = article.Picture;
         }
     }
 }
