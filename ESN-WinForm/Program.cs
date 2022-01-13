@@ -1,5 +1,4 @@
-﻿using ESN_WinForm.Forms;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace ESN_WinForm
@@ -14,7 +13,7 @@ namespace ESN_WinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ArticlesForm());
+            Application.Run(new LoginForm());
         }
     }
 }

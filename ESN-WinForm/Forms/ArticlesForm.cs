@@ -18,16 +18,16 @@ namespace ESN_WinForm.Forms
 
         private void NazadBtn_Click(object sender, EventArgs e)
         {
-            var form = new HomeForm();
-            form.ShowDialog();
-            this.Visible = false;
+            this.DialogResult = DialogResult.OK;
         }
 
         private void DodajBtn_Click(object sender, EventArgs e)
         {
+            Hide();
             AddArticles add = new AddArticles();
             add.ShowDialog();
-            this.Visible = false;
+            PopulateTable();
+            Show();
         }
 
         private async void PopulateTable()
@@ -50,23 +50,36 @@ namespace ESN_WinForm.Forms
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(response, (typeof(DataTable)));
                 VijestiTabela.DataSource = dataTable;
             }
+            else
+            {
+                PopulateTable();
+            }
         }
 
         private async void ObrisiBtn_Click(object sender, EventArgs e)
         {
-            var selectedArticle = VijestiTabela.SelectedRows[0].DataBoundItem as DataRowView;
-            var articleId = selectedArticle.Row.ItemArray[0].ToString();
-            await ArticleService.Delete(int.Parse(articleId));
-            PopulateTable();
+            if (VijestiTabela.SelectedRows.Count > 0)
+            {
+                var selectedArticle = VijestiTabela.SelectedRows[0].DataBoundItem as DataRowView;
+                var articleId = selectedArticle.Row.ItemArray[0].ToString();
+                await ArticleService.Delete(int.Parse(articleId));
+                PopulateTable();
+            }
         }
 
         private void UrediBtn_Click(object sender, EventArgs e)
         {
-            var selectedArticle = VijestiTabela.SelectedRows[0].DataBoundItem as DataRowView;
-            ArticleId = int.Parse(selectedArticle.Row.ItemArray[0].ToString());
+            if (VijestiTabela.SelectedRows.Count > 0)
+            {
+                var selectedArticle = VijestiTabela.SelectedRows[0].DataBoundItem as DataRowView;
+                ArticleId = int.Parse(selectedArticle.Row.ItemArray[0].ToString());
 
-            EditArticle editArticle = new EditArticle();
-            editArticle.ShowDialog();
+                Hide();
+                EditArticle editArticle = new EditArticle();
+                editArticle.ShowDialog();
+                PopulateTable();
+                Show();
+            }
         }
     }
 }

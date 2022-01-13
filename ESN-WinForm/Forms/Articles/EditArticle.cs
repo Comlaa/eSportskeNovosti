@@ -41,14 +41,12 @@ namespace ESN_WinForm.Forms.Articles
                 CategoryId = 1
             };
             await ArticleService.Edit(_article);
-            NazadBtn_Click(null, null);
+            NazadBtn_Click_1(null, null);
         }
 
-        private void NazadBtn_Click(object sender, EventArgs e)
+        private void NazadBtn_Click_1(object sender, EventArgs e)
         {
-            this.Visible = false;
-            ArticlesForm articles = new ArticlesForm();
-            articles.ShowDialog();
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

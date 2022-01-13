@@ -124,6 +124,7 @@
             this.NazadBtn.TabIndex = 48;
             this.NazadBtn.Text = "Nazad";
             this.NazadBtn.UseVisualStyleBackColor = false;
+            this.NazadBtn.Click += new System.EventHandler(this.NazadBtn_Click_1);
             // 
             // label1
             // 

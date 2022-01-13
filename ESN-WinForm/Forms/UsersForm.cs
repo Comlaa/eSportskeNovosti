@@ -14,11 +14,9 @@ namespace ESN_WinForm.Forms
             PopulateTable();
         }
 
-        private async void PretraziBtn_Click(object sender, EventArgs e)
+        private void PretraziBtn_Click(object sender, EventArgs e)
         {
-            var response = await UserService.GetAllUsersByUsername(SearchBox.Text);
-            DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(response, (typeof(DataTable)));
-            KorisniciTabela.DataSource = dataTable;
+            SearchBox_TextChanged(null, null);
         }
 
         private async void PopulateTable()
@@ -30,15 +28,26 @@ namespace ESN_WinForm.Forms
 
         private void NazadBtn_Click(object sender, EventArgs e)
         {
-            var form = new HomeForm();
-            form.ShowDialog();
-
-            Close();
+            this.DialogResult = DialogResult.OK;
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
         {
-            PretraziBtn_Click(sender, e);
+            SearchBox_TextChanged(null, null);
+        }
+
+        private async void SearchBox_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchBox.Text != "")
+            {
+                var response = await UserService.GetAllUsersByUsername(SearchBox.Text);
+                DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(response, (typeof(DataTable)));
+                KorisniciTabela.DataSource = dataTable;
+            }
+            else
+            {
+                PopulateTable();
+            }
         }
     }
 }

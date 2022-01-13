@@ -8,6 +8,7 @@ namespace ESN_WinForm.Forms.Categories
 {
     public partial class CategoriesForm : Form
     {
+        public static int CategoryId { get; set; }
         public CategoriesForm()
         {
             InitializeComponent();
@@ -16,16 +17,16 @@ namespace ESN_WinForm.Forms.Categories
 
         private void NazadBtn_Click(object sender, EventArgs e)
         {
-            var form = new HomeForm();
-            form.ShowDialog();
-            this.Visible = false;
+            this.DialogResult = DialogResult.OK;
         }
 
         private async void PopulateTable()
         {
-            var response = await ArticleService.GetAllArticles();
+            var response = await CategoryService.GetAllCategories();
             DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(response, (typeof(DataTable)));
-            VijestiTabela.DataSource = dataTable;
+            KategorijaTabela.DataSource = dataTable;
+            KategorijaTabela.AutoResizeColumns();
+            KategorijaTabela.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void PretraziBtn_Click(object sender, EventArgs e)
@@ -37,28 +38,53 @@ namespace ESN_WinForm.Forms.Categories
         {
             if (SearchBox.Text != "")
             {
-                var response = await ArticleService.GetAllArticlesByTitle(SearchBox.Text);
+                var response = await CategoryService.GetAllCategorysByName(SearchBox.Text);
                 DataTable dataTable = (DataTable)JsonConvert.DeserializeObject(response, (typeof(DataTable)));
-                VijestiTabela.DataSource = dataTable;
+                KategorijaTabela.DataSource = dataTable;
+            }
+            else
+            {
+                PopulateTable();
             }
         }
 
         private async void ObrisiBtn_Click(object sender, EventArgs e)
         {
-            var selectedArticle = VijestiTabela.SelectedRows[0].DataBoundItem as DataRowView;
-            var articleId = selectedArticle.Row.ItemArray[0].ToString();
-            await ArticleService.Delete(int.Parse(articleId));
-            PopulateTable();
+            if (KategorijaTabela.SelectedRows.Count > 0)
+            {
+                var selectedCategory = KategorijaTabela.SelectedRows[0].DataBoundItem as DataRowView;
+                var categoryId = selectedCategory.Row.ItemArray[2].ToString();
+                await CategoryService.Delete(int.Parse(categoryId));
+                PopulateTable();
+            }
         }
 
         private void UrediBtn_Click(object sender, EventArgs e)
         {
-            //var selectedArticle = VijestiTabela.SelectedRows[0].DataBoundItem as DataRowView;
-            //ArticleId = int.Parse(selectedArticle.Row.ItemArray[0].ToString());
+            if (KategorijaTabela.SelectedRows.Count > 0)
+            {
+                var selectedArticle = KategorijaTabela.SelectedRows[0].DataBoundItem as DataRowView;
+                CategoryId = int.Parse(selectedArticle.Row.ItemArray[2].ToString());
 
-            //EditArticle editArticle = new EditArticle();
-            //editArticle.ShowDialog();
+                Hide();
+                EditCategory editCategory = new EditCategory();
+                editCategory.ShowDialog();
+                PopulateTable();
+                Show();
+            }
         }
 
+        private async void DodajBtn_Click(object sender, EventArgs e)
+        {
+            CategoryDTO category = new CategoryDTO
+            {
+                Name = Naziv.Text,
+                Description = Opis.Text,
+            };
+            await CategoryService.Add(category);
+            PopulateTable();
+            Naziv.Text = "";
+            Opis.Text = "";
+        }
     }
 }

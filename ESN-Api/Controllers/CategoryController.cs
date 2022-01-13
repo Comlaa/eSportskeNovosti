@@ -22,31 +22,33 @@ namespace ESN_Api.Controllers
             return "success";
         }
 
-        [HttpGet("Categories")]
-        public async Task<List<Category>> GetCategorys()
+        [HttpGet("categories")]
+        public async Task<List<Category>> GetCategories()
         {
-            return await _categoryRepository.Get50Categories();
+            var response = await _categoryRepository.Get50Categories();
+
+            return response;
         }
 
-        [HttpGet("Category")]
+        [HttpGet("category")]
         public async Task<Category> GetCategory(int CategoryId)
         {
             return await _categoryRepository.GetCategoryById(CategoryId);
         }
 
-        [HttpGet("Categories-by-name")]
+        [HttpGet("categories-by-name")]
         public async Task<List<Category>> GetCategoriesByName(string name)
         {
             return await _categoryRepository.GetCategoryByName(name);
         }
 
-        [HttpDelete("Category")]
+        [HttpDelete("category")]
         public async Task DeleteCategory(int CategoryId)
         {
             await _categoryRepository.DeleteCategory(CategoryId);
         }
 
-        [HttpPut("Category")]
+        [HttpPut("category")]
         public async Task EditCategory([FromBody] Category category)
         {
             await _categoryRepository.EditCategory(category);

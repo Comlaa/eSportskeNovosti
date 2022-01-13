@@ -18,7 +18,8 @@ namespace ESN_WinForm.Forms.Articles
 
         private async void DodajBtn_Click(object sender, EventArgs e)
         {
-            ArticleDTO article = new ArticleDTO { 
+            ArticleDTO article = new ArticleDTO
+            {
                 Title = Naziv.Text,
                 Text = Tekst.Text,
                 Tags = Tagovi.Text,
@@ -26,8 +27,25 @@ namespace ESN_WinForm.Forms.Articles
                 Date = Datum.Value,
                 CategoryId = 1
             };
-            var response = await ArticleService.Add(article);
+            await ArticleService.Add(article);
             NazadBtn_Click(null, null);
+        }
+
+        private void slika_Click(object sender, EventArgs e)
+        {
+            PretraziSliku.Title = "Open Image file";
+            PretraziSliku.Filter = "Image Files(*.jpeg;*.bmp;*.png;*.jpg)|*.jpeg;*.bmp;*.png;*.jpg";
+
+            if (PretraziSliku.ShowDialog() == DialogResult.OK)
+            {
+                slika.Image = Image.FromFile(PretraziSliku.FileName);
+            }
+            PretraziSliku.Dispose();
+        }
+
+        private void NazadBtn_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
         }
 
         private void Tekst_Leave(object sender, EventArgs e)
@@ -76,25 +94,6 @@ namespace ESN_WinForm.Forms.Articles
             {
                 Tagovi.Text = "Molimo unesite tagove clanka";
             }
-        }
-
-        private void slika_Click(object sender, EventArgs e)
-        {
-            PretraziSliku.Title = "Open Image file";
-            PretraziSliku.Filter = "Image Files(*.jpeg;*.bmp;*.png;*.jpg)|*.jpeg;*.bmp;*.png;*.jpg";
-
-            if (PretraziSliku.ShowDialog() == DialogResult.OK)
-            {
-                slika.Image = Image.FromFile(PretraziSliku.FileName);
-            }
-            PretraziSliku.Dispose();
-        }
-
-        private void NazadBtn_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            ArticlesForm articles = new ArticlesForm();
-            articles.ShowDialog();
         }
     }
 }

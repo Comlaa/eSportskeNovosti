@@ -38,7 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Datum = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.OdjaviBtn = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -79,6 +79,7 @@
             this.VijestiBtn.TabIndex = 9;
             this.VijestiBtn.Text = "Članci";
             this.VijestiBtn.UseVisualStyleBackColor = false;
+            this.VijestiBtn.Click += new System.EventHandler(this.VijestiBtn_Click);
             // 
             // KorisniciBtn
             // 
@@ -91,6 +92,7 @@
             this.KorisniciBtn.TabIndex = 10;
             this.KorisniciBtn.Text = "Korisnici";
             this.KorisniciBtn.UseVisualStyleBackColor = false;
+            this.KorisniciBtn.Click += new System.EventHandler(this.KorisniciBtn_Click);
             // 
             // RoleBtn
             // 
@@ -103,6 +105,7 @@
             this.RoleBtn.TabIndex = 11;
             this.RoleBtn.Text = "Role";
             this.RoleBtn.UseVisualStyleBackColor = false;
+            this.RoleBtn.Click += new System.EventHandler(this.RoleBtn_Click);
             // 
             // KategorijeBtn
             // 
@@ -115,6 +118,7 @@
             this.KategorijeBtn.TabIndex = 12;
             this.KategorijeBtn.Text = "Kategorije";
             this.KategorijeBtn.UseVisualStyleBackColor = false;
+            this.KategorijeBtn.Click += new System.EventHandler(this.KategorijeBtn_Click);
             // 
             // label3
             // 
@@ -147,17 +151,18 @@
             this.Datum.TabIndex = 18;
             this.Datum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // OdjaviBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(662, 443);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 37);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Odjavi se";
-            this.button1.UseVisualStyleBackColor = false;
+            this.OdjaviBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
+            this.OdjaviBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.OdjaviBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.OdjaviBtn.Location = new System.Drawing.Point(662, 443);
+            this.OdjaviBtn.Name = "OdjaviBtn";
+            this.OdjaviBtn.Size = new System.Drawing.Size(174, 37);
+            this.OdjaviBtn.TabIndex = 19;
+            this.OdjaviBtn.Text = "Odjavi se";
+            this.OdjaviBtn.UseVisualStyleBackColor = false;
+            this.OdjaviBtn.Click += new System.EventHandler(this.OdjaviBtn_Click);
             // 
             // button2
             // 
@@ -189,7 +194,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(849, 490);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.OdjaviBtn);
             this.Controls.Add(this.Datum);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -222,7 +227,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Datum;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button OdjaviBtn;
         private System.Windows.Forms.Button button2;
     }
 }
