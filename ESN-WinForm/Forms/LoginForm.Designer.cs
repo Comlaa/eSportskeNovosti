@@ -32,12 +32,12 @@
             this.AppName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Username = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.TextBox();
             this.LoginBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,19 +77,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "AdminPortal";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::ESN_WinForm.Properties.Resources.Login_banner;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(430, 90);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(671, 446);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.WaitOnLoad = true;
-            // 
             // Username
             // 
             this.Username.BackColor = System.Drawing.SystemColors.Window;
@@ -104,18 +91,18 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(63, 229);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 13);
+            this.label3.Size = new System.Drawing.Size(75, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Username";
+            this.label3.Text = "Korisnicko ime";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(63, 281);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 13);
+            this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Password";
+            this.label4.Text = "Lozinka";
             // 
             // Password
             // 
@@ -133,11 +120,24 @@
             this.LoginBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.LoginBtn.Location = new System.Drawing.Point(180, 335);
             this.LoginBtn.Name = "LoginBtn";
-            this.LoginBtn.Size = new System.Drawing.Size(155, 29);
+            this.LoginBtn.Size = new System.Drawing.Size(155, 34);
             this.LoginBtn.TabIndex = 8;
-            this.LoginBtn.Text = "Login";
+            this.LoginBtn.Text = "Prijava";
             this.LoginBtn.UseVisualStyleBackColor = false;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::ESN_WinForm.Properties.Resources.Login_banner;
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(361, 102);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(478, 335);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.WaitOnLoad = true;
             // 
             // LoginForm
             // 
@@ -145,7 +145,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1125, 632);
+            this.ClientSize = new System.Drawing.Size(849, 490);
             this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Password);
@@ -157,6 +157,7 @@
             this.Controls.Add(this.AppName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ESN - Login ";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

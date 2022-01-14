@@ -4,6 +4,7 @@ using ESN_Api.ESN_Api.dal.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ESN_Api.Migrations
 {
     [DbContext(typeof(ESNDbContext))]
-    partial class ESNDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220110205934_Additional-Article-Fields")]
+    partial class AdditionalArticleFields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,10 +46,6 @@ namespace ESN_Api.Migrations
 
                     b.Property<DateTime>("ModifedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Picture")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tags")
                         .IsRequired()
@@ -218,14 +216,14 @@ namespace ESN_Api.Migrations
                         {
                             Id = 1,
                             CreatedAt = new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc),
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 64, DateTimeKind.Utc).AddTicks(8245),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(144),
                             Name = "Male"
                         },
                         new
                         {
                             Id = 2,
                             CreatedAt = new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc),
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 64, DateTimeKind.Utc).AddTicks(8250),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(148),
                             Name = "Female"
                         });
                 });
@@ -261,7 +259,7 @@ namespace ESN_Api.Migrations
                         {
                             Id = 1,
                             CreatedAt = new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc),
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 64, DateTimeKind.Utc).AddTicks(8637),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(515),
                             Name = "Admin",
                             Permissions = "Read, Write, Edit, Create, Delete"
                         },
@@ -269,7 +267,7 @@ namespace ESN_Api.Migrations
                         {
                             Id = 2,
                             CreatedAt = new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc),
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 64, DateTimeKind.Utc).AddTicks(8639),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(517),
                             Name = "Editor",
                             Permissions = "Read, Write, Edit"
                         },
@@ -277,7 +275,7 @@ namespace ESN_Api.Migrations
                         {
                             Id = 3,
                             CreatedAt = new DateTime(2022, 1, 2, 18, 0, 0, 0, DateTimeKind.Utc),
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 64, DateTimeKind.Utc).AddTicks(8640),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(518),
                             Name = "User",
                             Permissions = "Read"
                         });
@@ -368,7 +366,7 @@ namespace ESN_Api.Migrations
                             FirstName = "desktop",
                             GenderId = 1,
                             Lastname = "",
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 64, DateTimeKind.Utc).AddTicks(8864),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(731),
                             PasswordHash = "ExhCoLc0RVU6e1K2veoRh6dUP4FRE2uyFXAkQrsPYKc=",
                             PasswordSalt = "ohIp8ucWEgzGRvqMbu3InQ==",
                             Username = "desktop"
@@ -381,7 +379,7 @@ namespace ESN_Api.Migrations
                             FirstName = "mobile",
                             GenderId = 1,
                             Lastname = "",
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 64, DateTimeKind.Utc).AddTicks(8868),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(736),
                             PasswordHash = "ExhCoLc0RVU6e1K2veoRh6dUP4FRE2uyFXAkQrsPYKc=",
                             PasswordSalt = "ohIp8ucWEgzGRvqMbu3InQ==",
                             Username = "mobile"
@@ -394,7 +392,7 @@ namespace ESN_Api.Migrations
                             FirstName = "korisnik",
                             GenderId = 1,
                             Lastname = "",
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 64, DateTimeKind.Utc).AddTicks(8870),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(737),
                             PasswordHash = "ExhCoLc0RVU6e1K2veoRh6dUP4FRE2uyFXAkQrsPYKc=",
                             PasswordSalt = "ohIp8ucWEgzGRvqMbu3InQ==",
                             Username = "korisnik"
@@ -433,24 +431,24 @@ namespace ESN_Api.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2022, 1, 13, 22, 51, 5, 65, DateTimeKind.Utc).AddTicks(4924),
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 65, DateTimeKind.Utc).AddTicks(4924),
+                            CreatedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(5700),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(5700),
                             RoleId = 1,
                             UserId = 1
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2022, 1, 13, 22, 51, 5, 65, DateTimeKind.Utc).AddTicks(4927),
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 65, DateTimeKind.Utc).AddTicks(4927),
+                            CreatedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(5704),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(5704),
                             RoleId = 1,
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2022, 1, 13, 22, 51, 5, 65, DateTimeKind.Utc).AddTicks(4928),
-                            ModifedAt = new DateTime(2022, 1, 13, 22, 51, 5, 65, DateTimeKind.Utc).AddTicks(4928),
+                            CreatedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(5705),
+                            ModifedAt = new DateTime(2022, 1, 10, 20, 59, 33, 889, DateTimeKind.Utc).AddTicks(5705),
                             RoleId = 3,
                             UserId = 3
                         });

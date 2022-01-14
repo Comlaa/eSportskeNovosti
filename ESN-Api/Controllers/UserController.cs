@@ -1,3 +1,4 @@
+using ESN_Api.ESN_Api.dal.DTO;
 using ESN_Api.ESN_Api.dal.Repositories;
 using ESN_Api.ESN_Api.dal.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -20,8 +21,14 @@ namespace ESN_Api.Controllers
             return await _userRepository.Get50Users();
         }
 
+        [HttpGet("users-by-username")]
+        public async Task<List<UserVM>> GetUsersByUsername(string username)
+        {
+            return await _userRepository.GetUsersByUsername(username);
+        }
+
         [HttpPut("login")]
-        public async Task<bool> Login([FromBody] LoginVM user)
+        public async Task<bool> Login([FromBody] LoginDTO user)
         {
             return await _userRepository.Login(user.Username, user.Password);
         }
