@@ -43,25 +43,28 @@ namespace ESN_WinForm.Forms.Articles
 
         private async void DodajBtn_Click(object sender, EventArgs e)
         {
-            var categoryId = 1;
-            foreach (var category in categories)
+            if (ValidateInputs())
             {
-                if (category.Name.Equals(Kategorije.SelectedItem.ToString()))
-                    categoryId = category.Id;
+                var categoryId = 1;
+                foreach (var category in categories)
+                {
+                    if (category.Name.Equals(Kategorije.SelectedItem.ToString()))
+                        categoryId = category.Id;
+                }
+                ArticleDTO _article = new ArticleDTO
+                {
+                    Id = article.Id,
+                    Title = Naziv.Text,
+                    Text = Tekst.Text,
+                    Tags = Tagovi.Text,
+                    AllowComments = Komentari.Checked,
+                    Date = Datum.Value,
+                    CategoryId = categoryId,
+                    Picture = ConvertImage.ConvertImageToBase64(slika.Image)
+                };
+                await ArticleService.Edit(_article);
+                NazadBtn_Click_1(null, null);
             }
-            ArticleDTO _article = new ArticleDTO
-            {
-                Id = article.Id,
-                Title = Naziv.Text,
-                Text = Tekst.Text,
-                Tags = Tagovi.Text,
-                AllowComments = Komentari.Checked,
-                Date = Datum.Value,
-                CategoryId = categoryId,
-                Picture = ConvertImage.ConvertImageToBase64(slika.Image)
-            };
-            await ArticleService.Edit(_article);
-            NazadBtn_Click_1(null, null);
         }
 
         private void NazadBtn_Click_1(object sender, EventArgs e)
@@ -79,6 +82,16 @@ namespace ESN_WinForm.Forms.Articles
                 slika.Image = Image.FromFile(PretraziSliku.FileName);
             }
             PretraziSliku.Dispose();
+        }
+
+        private bool ValidateInputs()
+        {
+            if (ValidateInput.Text(Naziv, 3, "Naziv članka mora biti duži od 3 karaktera!", errorProvider1) &&
+                ValidateInput.Text(Tekst, 10, "Tekst članka mora biti duži od 10 karaktera!", errorProvider1) &&
+                ValidateInput.Text(Tagovi, 3, "Naziv taga mora biti duži od 3 karaktera!", errorProvider1))
+                return true;
+
+            return false;
         }
     }
 }

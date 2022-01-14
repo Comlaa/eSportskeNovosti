@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriesForm));
             this.NazadBtn = new System.Windows.Forms.Button();
             this.ObrisiBtn = new System.Windows.Forms.Button();
@@ -41,8 +42,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Opis = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.KategorijaTabela)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PretraziBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // NazadBtn
@@ -190,6 +193,10 @@
             this.Opis.Size = new System.Drawing.Size(208, 116);
             this.Opis.TabIndex = 50;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // CategoriesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,6 +220,7 @@
             this.Text = "CategoriesForm";
             ((System.ComponentModel.ISupportInitialize)(this.KategorijaTabela)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PretraziBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +240,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Opis;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

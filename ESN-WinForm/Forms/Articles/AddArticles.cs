@@ -32,25 +32,28 @@ namespace ESN_WinForm.Forms.Articles
 
         private async void DodajBtn_Click(object sender, EventArgs e)
         {
-            var categoryId = 1;
-            foreach (var category in categories)
+            if (ValidateInputs())
             {
-                if (category.Name.Equals(Kategorije.SelectedItem.ToString()))
-                    categoryId = category.Id;
-            }
+                var categoryId = 1;
+                foreach (var category in categories)
+                {
+                    if (category.Name.Equals(Kategorije.SelectedItem.ToString()))
+                        categoryId = category.Id;
+                }
 
-            ArticleDTO article = new ArticleDTO
-            {
-                Title = Naziv.Text,
-                Text = Tekst.Text,
-                Tags = Tagovi.Text,
-                AllowComments = Komentari.Checked,
-                Date = Datum.Value,
-                CategoryId = categoryId,
-                Picture = ConvertImage.ConvertImageToBase64(slika.Image)
-            };
-            await ArticleService.Add(article);
-            NazadBtn_Click(null, null);
+                ArticleDTO article = new ArticleDTO
+                {
+                    Title = Naziv.Text,
+                    Text = Tekst.Text,
+                    Tags = Tagovi.Text,
+                    AllowComments = Komentari.Checked,
+                    Date = Datum.Value,
+                    CategoryId = categoryId,
+                    Picture = ConvertImage.ConvertImageToBase64(slika.Image)
+                };
+                await ArticleService.Add(article);
+                NazadBtn_Click(null, null);
+            }
         }
 
         private void slika_Click(object sender, EventArgs e)
@@ -116,6 +119,16 @@ namespace ESN_WinForm.Forms.Articles
             {
                 Tagovi.Text = "Molimo unesite tagove clanka";
             }
+        }
+
+        private bool ValidateInputs()
+        {
+            if (ValidateInput.Text(Naziv, 3, "Naziv članka mora biti duži od 3 karaktera!", errorProvider1) &&
+                ValidateInput.Text(Tekst, 10, "Tekst članka mora biti duži od 10 karaktera!", errorProvider1) &&
+                ValidateInput.Text(Tagovi, 3, "Naziv taga mora biti duži od 3 karaktera!", errorProvider1))
+                return true;
+
+            return false;
         }
     }
 }

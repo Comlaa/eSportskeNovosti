@@ -1,4 +1,5 @@
-﻿using ESN_WinForm.Services;
+﻿using ESN_WinForm.Helpers;
+using ESN_WinForm.Services;
 using Newtonsoft.Json;
 using System;
 using System.Windows.Forms;
@@ -15,14 +16,17 @@ namespace ESN_WinForm.Forms.Categories
 
         private async void DodajBtn_Click(object sender, EventArgs e)
         {
-            CategoryDTO category = new CategoryDTO
+            if (ValidateInputs())
             {
-                Name = Naziv.Text,
-                Description = Description.Text,
-                Id = CategoriesForm.CategoryId
-            };
-            await CategoryService.Edit(category);
-            NazadBtn_Click(null, null);
+                CategoryDTO category = new CategoryDTO
+                {
+                    Name = Naziv.Text,
+                    Description = Description.Text,
+                    Id = CategoriesForm.CategoryId
+                };
+                await CategoryService.Edit(category);
+                NazadBtn_Click(null, null);
+            }
         }
 
         private void NazadBtn_Click(object sender, EventArgs e)
@@ -39,6 +43,15 @@ namespace ESN_WinForm.Forms.Categories
                 Naziv.Text = category.Name;
                 Description.Text = category.Description;
             }
+        }
+
+        private bool ValidateInputs()
+        {
+            if (ValidateInput.Text(Naziv, 3, "Naziv kategorije mora biti duži od 3 karaktera!", errorProvider1) &&
+                ValidateInput.Text(Description, 10, "Opis kategorije mora biti duži od 10 karaktera!", errorProvider1))
+                return true;
+
+            return false;
         }
     }
 }

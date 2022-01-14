@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddArticles));
             this.label1 = new System.Windows.Forms.Label();
             this.DodajBtn = new System.Windows.Forms.Button();
@@ -40,7 +41,9 @@
             this.slika = new System.Windows.Forms.PictureBox();
             this.Kategorije = new System.Windows.Forms.ComboBox();
             this.Tagovi = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.slika)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -175,6 +178,10 @@
             this.Tagovi.Click += new System.EventHandler(this.Tagovi_Click);
             this.Tagovi.Leave += new System.EventHandler(this.Tagovi_Leave);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // AddArticles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +202,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj vijest";
             ((System.ComponentModel.ISupportInitialize)(this.slika)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,5 +221,6 @@
         private System.Windows.Forms.OpenFileDialog PretraziSliku;
         private System.Windows.Forms.ComboBox Kategorije;
         private System.Windows.Forms.TextBox Tagovi;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

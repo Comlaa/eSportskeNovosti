@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditArticle));
             this.Tagovi = new System.Windows.Forms.TextBox();
             this.Kategorije = new System.Windows.Forms.ComboBox();
@@ -40,7 +41,9 @@
             this.DodajBtn = new System.Windows.Forms.Button();
             this.slika = new System.Windows.Forms.PictureBox();
             this.PretraziSliku = new System.Windows.Forms.OpenFileDialog();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.slika)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // Tagovi
@@ -169,6 +172,10 @@
             // 
             this.PretraziSliku.FileName = "PretraziSliku";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // EditArticle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +196,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditArticle";
             ((System.ComponentModel.ISupportInitialize)(this.slika)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,5 +215,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button DodajBtn;
         private System.Windows.Forms.OpenFileDialog PretraziSliku;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
