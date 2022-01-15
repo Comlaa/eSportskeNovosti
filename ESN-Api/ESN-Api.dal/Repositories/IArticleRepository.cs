@@ -8,7 +8,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories
         Task<bool> AddArticle(ArticleDTO article);
         Task DeleteArticle(int articleId);
         Task EditArticle(ArticleDTO article);
-        Task<List<ArticleVM>> Get50Articles();
+        Task<List<ArticleVM>> Get50Articles(int userId = 2);
         Task<List<ArticleVM>> GetArticleByTitle(string title);
         Task<ArticleDTO> GetArticleById(int articleId);
 

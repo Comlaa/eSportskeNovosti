@@ -50,15 +50,19 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             }
         }
 
-        public async Task<List<ArticleVM>> Get50Articles()
+        public async Task<List<ArticleVM>> Get50Articles(int userId)
         {
+            var tags = _context.Favourites.Where(f => f.UserId == userId).Select(f => f.Tags).Distinct().ToString();
             return await _context.Articles.Include(a => a.Category)
             .Include(a => a.ArticleComments)
             .Include(a => a.ArticleRatings)
+            .Include(a => a.SavedArticles)
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
-            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average())).ToListAsync();
+            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(),
+            article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId),
+            tags.Contains(article.Tags))).ToListAsync();
         }
 
         public async Task<ArticleDTO> GetArticleById(int articleId)
