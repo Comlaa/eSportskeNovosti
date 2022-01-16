@@ -51,7 +51,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
                     .Where(a => a.Id == article.Key)
                     .Take(50).Select(article =>
                     new ArticleVM(article, article.Category.Name,
-                    article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
+                    article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
                     Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
                     article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId),
                     tags.Contains(article.Tags))).FirstOrDefault();

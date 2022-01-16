@@ -52,14 +52,17 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
 
         public async Task<List<ArticleVM>> Get50Articles(int userId)
         {
+            var haris = "Haris";
+            var dictionary = new Dictionary<string, string>();
             var tags = _context.Favourites.Where(f => f.UserId == userId).Select(f => f.Tags).ToList();
             return await _context.Articles.Include(a => a.Category)
             .Include(a => a.ArticleComments)
             .Include(a => a.ArticleRatings)
             .Include(a => a.SavedArticles)
+            .ThenInclude(a => a.User)
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
-            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
+            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
             Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
             article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId),
             tags.Contains(article.Tags))).ToListAsync();
@@ -75,7 +78,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             .Where(a => tags.Contains(a.Tags))
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
-            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
+            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
             Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
             article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId), true)).ToListAsync();
         }
@@ -92,7 +95,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             .Where(a => lista.Contains(a.Id))
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
-            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
+            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
             Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
             true, tags.Contains(article.Tags))).ToListAsync();
         }
@@ -109,10 +112,24 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             .Include(a => a.Category)
             .Include(a => a.ArticleComments)
             .Include(a => a.ArticleRatings)
+            .ThenInclude(a => a.User)
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
-            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
+            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
             article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average())).ToListAsync();
+        }
+
+        public async Task AddComment(CommentDTO comment)
+        {
+            await _context.ArticleComments.AddAsync(new ArticleComment
+            {
+                ArticleId = comment.ArticleId,
+                UserId = comment.UserId,
+                Comment = comment.Comment,
+                IsApproved = true
+            });
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task UpdateArticleFavorite(ArticleFavoritesDTO article)

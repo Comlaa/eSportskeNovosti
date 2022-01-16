@@ -78,5 +78,11 @@ namespace ESN_Api.Controllers
         {
             return _recommendationRepository.GetRecommendedArticles(userId);
         }
+
+        [HttpPut("article-comment")]
+        public async Task AddComment([FromBody] CommentDTO comment)
+        {
+            await _articleRepository.AddComment(comment);
+        }
     }
 }

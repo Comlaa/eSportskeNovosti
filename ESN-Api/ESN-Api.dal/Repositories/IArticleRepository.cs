@@ -14,5 +14,6 @@ namespace ESN_Api.ESN_Api.dal.Repositories
         Task<List<ArticleVM>> Get50SavedArticles(int userId);
         Task<List<ArticleVM>> GetArticleByTitle(string title);
         Task<ArticleDTO> GetArticleById(int articleId);
+        Task AddComment(CommentDTO comment);
     }
 }
