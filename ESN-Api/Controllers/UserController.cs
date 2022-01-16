@@ -21,6 +21,12 @@ namespace ESN_Api.Controllers
             return await _userRepository.Get50Users();
         }
 
+        [HttpGet("user-id")]
+        public async Task<int> GetUserId(string username)
+        {
+            return await _userRepository.GetUserId(username);
+        }
+
         [HttpGet("users-by-username")]
         public async Task<List<UserVM>> GetUsersByUsername(string username)
         {
@@ -32,5 +38,6 @@ namespace ESN_Api.Controllers
         {
             return await _userRepository.Login(user.Username, user.Password);
         }
+
     }
 }

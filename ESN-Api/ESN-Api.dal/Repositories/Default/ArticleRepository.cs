@@ -60,7 +60,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
-            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(),
+            Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
             article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId),
             tags.Contains(article.Tags))).ToListAsync();
         }
@@ -76,7 +76,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
-            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(),
+            Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
             article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId), true)).ToListAsync();
         }
 
@@ -93,7 +93,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
-            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(),
+            Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
             true, tags.Contains(article.Tags))).ToListAsync();
         }
 

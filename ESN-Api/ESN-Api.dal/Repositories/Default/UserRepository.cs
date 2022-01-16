@@ -19,6 +19,15 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             return await _context.Users.Take(50).Select(user => new UserVM(user)).ToListAsync();
         }
 
+        public async Task<int> GetUserId(string username)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(user => user.Email == username || user.Username == username);
+            if (user != null)
+                return user.Id;
+
+            return 0;
+        }
+
         public async Task<List<UserVM>> GetUsersByUsername(string username)
         {
             return await _context.Users.Where(x => x.Username.Contains(username)).Select(user => new UserVM(user)).ToListAsync();
@@ -27,12 +36,12 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
         public async Task<bool> Login(string username, string password)
         {
             var user = await _context.Users.FirstOrDefaultAsync(user => user.Username.Equals(username));
-            if(user != null)
+            if (user != null)
             {
                 var passwordSalt = Convert.FromBase64String(user.PasswordSalt);
                 return user.PasswordHash == PasswordHelper.GetHash(password, passwordSalt);
             }
-            
+
             return false;
         }
     }

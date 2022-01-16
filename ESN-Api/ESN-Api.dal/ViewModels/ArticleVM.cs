@@ -21,7 +21,7 @@ namespace ESN_Api.ESN_Api.dal.ViewModels
 
         }
 
-        public ArticleVM(Article article, string category, List<string> comments, double rating, bool favorite, bool saved)
+        public ArticleVM(Article article, string category, List<string> comments, double rating, bool saved, bool favorite)
         {
             Id = article.Id;
             Title = article.Title;
@@ -32,8 +32,8 @@ namespace ESN_Api.ESN_Api.dal.ViewModels
             ArticleComments = comments;
             ArticleRating = rating;
             Comments = article.AllowComments ? "Dozvoljeni" : "Nisu dozvoljeni";
-            Favorite = favorite;
             Saved = saved;
+            Favorite = favorite;
         }
 
         public ArticleVM(Article article, string category, List<string> comments, double rating)
