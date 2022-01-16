@@ -24,9 +24,21 @@ namespace ESN_Api.Controllers
         }
 
         [HttpGet("articles")]
-        public async Task<List<ArticleVM>> GetArticles()
+        public async Task<List<ArticleVM>> GetArticles(int userId)
         {
-            return await _articleRepository.Get50Articles();
+            return await _articleRepository.Get50Articles(userId);
+        }
+
+        [HttpGet("favorite-articles")]
+        public async Task<List<ArticleVM>> GetFavoriteArticles(int userId)
+        {
+            return await _articleRepository.Get50FavoritesArticles(userId);
+        }
+
+        [HttpGet("saved-articles")]
+        public async Task<List<ArticleVM>> GetSavedArticles(int userId)
+        {
+            return await _articleRepository.Get50SavedArticles(userId);
         }
 
         [HttpGet("article")]
@@ -51,6 +63,12 @@ namespace ESN_Api.Controllers
         public async Task EditArticle([FromBody] ArticleDTO newArticle)
         {
             await _articleRepository.EditArticle(newArticle);
+        }
+
+        [HttpPut("article-favorites")]
+        public async Task UpdateFavorites([FromBody] ArticleFavoritesDTO updatedArticle)
+        {
+            await _articleRepository.UpdateArticleFavorite(updatedArticle);
         }
     }
 }
