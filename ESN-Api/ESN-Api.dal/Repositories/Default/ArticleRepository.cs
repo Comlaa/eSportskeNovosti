@@ -50,15 +50,54 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             }
         }
 
-        public async Task<List<ArticleVM>> Get50Articles()
+        public async Task<List<ArticleVM>> Get50Articles(int userId)
         {
+            var haris = "Haris";
+            var dictionary = new Dictionary<string, string>();
+            var tags = _context.Favourites.Where(f => f.UserId == userId).Select(f => f.Tags).ToList();
             return await _context.Articles.Include(a => a.Category)
             .Include(a => a.ArticleComments)
             .Include(a => a.ArticleRatings)
+            .Include(a => a.SavedArticles)
+            .ThenInclude(a => a.User)
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
-            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
-            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average())).ToListAsync();
+            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
+            Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
+            article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId),
+            tags.Contains(article.Tags))).ToListAsync();
+        }
+
+        public async Task<List<ArticleVM>> Get50FavoritesArticles(int userId)
+        {
+            var tags = _context.Favourites.Where(f => f.UserId == userId).Select(f => f.Tags).ToList();
+            return await _context.Articles.Include(a => a.Category)
+            .Include(a => a.ArticleComments)
+            .Include(a => a.ArticleRatings)
+            .Include(a => a.SavedArticles)
+            .Where(a => tags.Contains(a.Tags))
+            .Take(50).Select(article =>
+            new ArticleVM(article, article.Category.Name,
+            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
+            Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
+            article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId), true)).ToListAsync();
+        }
+
+        public async Task<List<ArticleVM>> Get50SavedArticles(int userId)
+        {
+            var lista = await _context.SavedArticles.Include(sa => sa.Article).Where(sa => sa.UserId == userId).Select(sa => sa.Article.Id).ToListAsync();
+            var tags = _context.Favourites.Where(f => f.UserId == userId).Select(f => f.Tags).ToList();
+
+            return await _context.Articles.Include(a => a.Category)
+            .Include(a => a.ArticleComments)
+            .Include(a => a.ArticleRatings)
+            .Include(a => a.SavedArticles)
+            .Where(a => lista.Contains(a.Id))
+            .Take(50).Select(article =>
+            new ArticleVM(article, article.Category.Name,
+            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
+            Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
+            true, tags.Contains(article.Tags))).ToListAsync();
         }
 
         public async Task<ArticleDTO> GetArticleById(int articleId)
@@ -73,10 +112,75 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             .Include(a => a.Category)
             .Include(a => a.ArticleComments)
             .Include(a => a.ArticleRatings)
+            .ThenInclude(a => a.User)
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
-            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(c => c.Comment).ToList(),
+            article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
             article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average())).ToListAsync();
+        }
+
+        public async Task AddComment(CommentDTO comment)
+        {
+            await _context.ArticleComments.AddAsync(new ArticleComment
+            {
+                ArticleId = comment.ArticleId,
+                UserId = comment.UserId,
+                Comment = comment.Comment,
+                IsApproved = true
+            });
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<ArticleCommentsVM>> GetComments(int userId)
+        {
+            return await _context.ArticleComments.Include(ar => ar.Article).Where(ar => ar.UserId == userId).Select(ar =>
+                new ArticleCommentsVM(ar.Article.Title, ar.Comment)).ToListAsync();
+        }
+
+        public async Task UpdateArticleFavorite(ArticleFavoritesDTO article)
+        {
+            var savedArticle = await _context.SavedArticles.FirstOrDefaultAsync(sa => sa.ArticleId == article.ArticleId);
+            if (savedArticle == null)
+            {
+                if (article.Saved)
+                {
+                    _context.SavedArticles.Add(new SavedArticle(article.UserId, article.ArticleId));
+                }
+            }
+            else
+            {
+                if (!article.Saved)
+                {
+                    _context.SavedArticles.Remove(savedArticle);
+                }
+            }
+
+            var user = await _context.Favourites.FirstOrDefaultAsync(u => u.UserId == article.UserId);
+            var _article = await _context.Articles.FindAsync(article.ArticleId);
+            if (user == null && article.Favorite)
+            {
+                _context.Favourites.Add(new Favourite
+                {
+                    UserId = article.UserId,
+                    Tags = _article.Tags,
+                });
+            }
+
+            if (user != null)
+            {
+                if (article.Favorite)
+                {
+                    user.Tags = _article.Tags;
+                    _context.Favourites.Update(user);
+                }
+                else
+                {
+                    _context.Favourites.Remove(user);
+                }
+            }
+
+            _context.SaveChanges();
         }
     }
 }

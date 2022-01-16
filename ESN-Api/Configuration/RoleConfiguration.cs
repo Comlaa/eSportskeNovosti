@@ -29,7 +29,7 @@ namespace ESN_Api.Configuration
                 {
                     Id=3,
                     Name="User",
-                    Permissions = "Read",
+                    Permissions = "Read, Write",
                     CreatedAt= new DateTime(2022, 1, 2, 18, 00, 00, DateTimeKind.Utc)
                 },
             });

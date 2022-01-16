@@ -10,10 +10,12 @@ namespace ESN_Api.Controllers
     public class ArticleController : ControllerBase
     {
         private readonly IArticleRepository _articleRepository;
+        private readonly IRecommendationRepository _recommendationRepository;
 
-        public ArticleController(IArticleRepository articleRepository)
+        public ArticleController(IArticleRepository articleRepository, IRecommendationRepository recommendationRepository)
         {
             _articleRepository = articleRepository;
+            _recommendationRepository = recommendationRepository;
         }
 
         [HttpPost("article")]
@@ -24,9 +26,21 @@ namespace ESN_Api.Controllers
         }
 
         [HttpGet("articles")]
-        public async Task<List<ArticleVM>> GetArticles()
+        public async Task<List<ArticleVM>> GetArticles(int userId)
         {
-            return await _articleRepository.Get50Articles();
+            return await _articleRepository.Get50Articles(userId);
+        }
+
+        [HttpGet("favorite-articles")]
+        public async Task<List<ArticleVM>> GetFavoriteArticles(int userId)
+        {
+            return await _articleRepository.Get50FavoritesArticles(userId);
+        }
+
+        [HttpGet("saved-articles")]
+        public async Task<List<ArticleVM>> GetSavedArticles(int userId)
+        {
+            return await _articleRepository.Get50SavedArticles(userId);
         }
 
         [HttpGet("article")]
@@ -51,6 +65,30 @@ namespace ESN_Api.Controllers
         public async Task EditArticle([FromBody] ArticleDTO newArticle)
         {
             await _articleRepository.EditArticle(newArticle);
+        }
+
+        [HttpPut("article-favorites")]
+        public async Task UpdateFavorites([FromBody] ArticleFavoritesDTO updatedArticle)
+        {
+            await _articleRepository.UpdateArticleFavorite(updatedArticle);
+        }
+
+        [HttpGet("recommended-articles")]
+        public List<ArticleVM> Recommend(int userId)
+        {
+            return _recommendationRepository.GetRecommendedArticles(userId);
+        }
+
+        [HttpPut("article-comment")]
+        public async Task AddComment([FromBody] CommentDTO comment)
+        {
+            await _articleRepository.AddComment(comment);
+        }
+
+        [HttpGet("comments")]
+        public async Task<List<ArticleCommentsVM>> GetComments(int userId)
+        {
+            return await _articleRepository.GetComments(userId);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace ESN_WinForm.Services
         {
             return await HTTPClient.Get(baseURL, "users-by-username?username=", search);
         }
-        
+
         public static async Task<string> Login(string username, string password)
         {
             LoginDTO loginData = new LoginDTO { Username = username, Password = password };

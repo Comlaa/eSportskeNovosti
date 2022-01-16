@@ -39,7 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Datum = new System.Windows.Forms.Label();
             this.OdjaviBtn = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -164,18 +163,6 @@
             this.OdjaviBtn.UseVisualStyleBackColor = false;
             this.OdjaviBtn.Click += new System.EventHandler(this.OdjaviBtn_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(474, 443);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(174, 37);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Postavke";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -193,7 +180,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(849, 490);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.OdjaviBtn);
             this.Controls.Add(this.Datum);
             this.Controls.Add(this.label4);
@@ -228,6 +214,5 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Datum;
         private System.Windows.Forms.Button OdjaviBtn;
-        private System.Windows.Forms.Button button2;
     }
 }

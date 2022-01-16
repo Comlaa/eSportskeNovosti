@@ -38,6 +38,7 @@
             this.Password = new System.Windows.Forms.TextBox();
             this.LoginBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Error = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,6 +140,17 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
             // 
+            // Error
+            // 
+            this.Error.AutoSize = true;
+            this.Error.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.Error.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Error.Location = new System.Drawing.Point(57, 381);
+            this.Error.Name = "Error";
+            this.Error.Size = new System.Drawing.Size(278, 13);
+            this.Error.TabIndex = 9;
+            this.Error.Text = "*Pogrešan password ili korisničko ime. Pokušajte ponovo.";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +158,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(849, 490);
+            this.Controls.Add(this.Error);
             this.Controls.Add(this.LoginBtn);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Password);
@@ -176,6 +189,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Button LoginBtn;
+        private System.Windows.Forms.Label Error;
     }
 }
 

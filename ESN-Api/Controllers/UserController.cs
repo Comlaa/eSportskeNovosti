@@ -21,6 +21,12 @@ namespace ESN_Api.Controllers
             return await _userRepository.Get50Users();
         }
 
+        [HttpGet("user-id")]
+        public async Task<int> GetUserId(string username)
+        {
+            return await _userRepository.GetUserId(username);
+        }
+
         [HttpGet("users-by-username")]
         public async Task<List<UserVM>> GetUsersByUsername(string username)
         {
@@ -32,5 +38,24 @@ namespace ESN_Api.Controllers
         {
             return await _userRepository.Login(user.Username, user.Password);
         }
+
+        [HttpPost("register")]
+        public async Task<bool> Register([FromBody] RegisterDTO account)
+        {
+            return await _userRepository.Register(account);
+        }
+
+        [HttpGet("user")]
+        public async Task<UserVM> GetUser(int userId)
+        {
+            return await _userRepository.GetUserById(userId);
+        }
+
+        [HttpPut("user")]
+        public async Task<bool> EditUser(UserVM user)
+        {
+            return await _userRepository.Edit(user);
+        }
+
     }
 }
