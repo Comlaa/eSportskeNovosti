@@ -45,5 +45,17 @@ namespace ESN_Api.Controllers
             return await _userRepository.Register(account);
         }
 
+        [HttpGet("user")]
+        public async Task<UserVM> GetUser(int userId)
+        {
+            return await _userRepository.GetUserById(userId);
+        }
+
+        [HttpPut("user")]
+        public async Task<bool> EditUser(UserVM user)
+        {
+            return await _userRepository.Edit(user);
+        }
+
     }
 }

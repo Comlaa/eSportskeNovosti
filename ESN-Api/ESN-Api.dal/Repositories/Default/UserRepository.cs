@@ -15,9 +15,31 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             _context = context;
         }
 
+        public async Task<bool> Edit(UserVM newUser)
+        {
+            var oldUser = await _context.Users.FindAsync(newUser.Id);
+
+            if (oldUser != null)
+            {
+                oldUser.Email = newUser.Email;
+                oldUser.Username = newUser.Username;
+                oldUser.FirstName = newUser.Name;
+
+                _context.Users.Update(oldUser);
+                await _context.SaveChangesAsync();
+            }
+
+            return true;
+        }
+
         public async Task<List<UserVM>> Get50Users()
         {
             return await _context.Users.Take(50).Select(user => new UserVM(user)).ToListAsync();
+        }
+
+        public async Task<UserVM> GetUserById(int userId)
+        {
+            return await _context.Users.Where(u => u.Id == userId).Select(user => new UserVM(user)).FirstOrDefaultAsync();
         }
 
         public async Task<int> GetUserId(string username)
