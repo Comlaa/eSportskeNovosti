@@ -20,6 +20,7 @@ builder.Services.AddDbContext<ESNDbContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IArticleRepository, ArticleRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IRecommendationRepository, RecommendationRepository>();
 
 var app = builder.Build();
 

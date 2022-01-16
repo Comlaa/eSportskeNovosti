@@ -10,10 +10,12 @@ namespace ESN_Api.Controllers
     public class ArticleController : ControllerBase
     {
         private readonly IArticleRepository _articleRepository;
+        private readonly IRecommendationRepository _recommendationRepository;
 
-        public ArticleController(IArticleRepository articleRepository)
+        public ArticleController(IArticleRepository articleRepository, IRecommendationRepository recommendationRepository)
         {
             _articleRepository = articleRepository;
+            _recommendationRepository = recommendationRepository;
         }
 
         [HttpPost("article")]
@@ -69,6 +71,12 @@ namespace ESN_Api.Controllers
         public async Task UpdateFavorites([FromBody] ArticleFavoritesDTO updatedArticle)
         {
             await _articleRepository.UpdateArticleFavorite(updatedArticle);
+        }
+
+        [HttpGet("recommended-articles")]
+        public List<ArticleVM> Recommend(int userId)
+        {
+            return _recommendationRepository.GetRecommendedArticles(userId);
         }
     }
 }

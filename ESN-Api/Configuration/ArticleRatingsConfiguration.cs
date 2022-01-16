@@ -43,6 +43,14 @@ namespace ESN_Api.Configuration
                     Rating = 5,
                     CreatedAt = DateTime.Now,
                 },
+                new ArticleRating
+                {
+                    Id = 5,
+                    UserId = 1,
+                    ArticleId = 3,
+                    Rating = 4,
+                    CreatedAt = DateTime.Now,
+                },
             });
         }
     }
