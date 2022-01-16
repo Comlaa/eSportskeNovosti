@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\RoleDTO.cs" />
     <Compile Include="Forms\ArticlesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +97,18 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\RolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RolesForm.Designer.cs">
+      <DependentUpon>RolesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Roles\EditRole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Roles\EditRole.Designer.cs">
+      <DependentUpon>EditRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +124,7 @@
     <Compile Include="DTO\ArticleDTO.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
     <EmbeddedResource Include="Forms\ArticlesForm.resx">
@@ -133,6 +147,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RolesForm.resx">
+      <DependentUpon>RolesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Roles\EditRole.resx">
+      <DependentUpon>EditRole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>

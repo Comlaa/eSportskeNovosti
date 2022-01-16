@@ -31,7 +31,10 @@ namespace ESN_WinForm.Forms
 
         private void RoleBtn_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            RolesForm form = new RolesForm();
+            form.ShowDialog();
+            Show();
         }
 
         private void KategorijeBtn_Click(object sender, EventArgs e)

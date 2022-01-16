@@ -11,6 +11,7 @@ namespace ESN_WinForm
         public LoginForm()
         {
             InitializeComponent();
+            Error.Visible = false;
         }
 
         private async void LoginBtn_Click(object sender, EventArgs e)
@@ -18,10 +19,17 @@ namespace ESN_WinForm
             var response = await UserService.Login(Username.Text, Password.Text);
             if (response.Equals(Constants.Success))
             {
+                Error.Visible = false;
+                Username.Text = "";
+                Password.Text = "";
                 Hide();
                 var form = new HomeForm();
                 form.ShowDialog();
                 Show();
+            }
+            else
+            {
+                Error.Visible = true;
             }
         }
     }

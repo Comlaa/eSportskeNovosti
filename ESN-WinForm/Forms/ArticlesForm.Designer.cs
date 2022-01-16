@@ -35,7 +35,6 @@
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.UrediBtn = new System.Windows.Forms.Button();
-            this.KomentariBtn = new System.Windows.Forms.Button();
             this.ObrisiBtn = new System.Windows.Forms.Button();
             this.NazadBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VijestiTabela)).BeginInit();
@@ -49,7 +48,7 @@
             this.VijestiTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VijestiTabela.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.VijestiTabela.Location = new System.Drawing.Point(304, 107);
-            this.VijestiTabela.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.VijestiTabela.Margin = new System.Windows.Forms.Padding(2);
             this.VijestiTabela.Name = "VijestiTabela";
             this.VijestiTabela.RowHeadersWidth = 51;
             this.VijestiTabela.RowTemplate.Height = 24;
@@ -61,7 +60,7 @@
             this.DodajBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.DodajBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.DodajBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.DodajBtn.Location = new System.Drawing.Point(20, 124);
+            this.DodajBtn.Location = new System.Drawing.Point(21, 142);
             this.DodajBtn.Name = "DodajBtn";
             this.DodajBtn.Size = new System.Drawing.Size(211, 47);
             this.DodajBtn.TabIndex = 30;
@@ -75,7 +74,7 @@
             this.PretraziBtn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PretraziBtn.Image = global::ESN_WinForm.Properties.Resources.search;
             this.PretraziBtn.Location = new System.Drawing.Point(304, 37);
-            this.PretraziBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PretraziBtn.Margin = new System.Windows.Forms.Padding(2);
             this.PretraziBtn.Name = "PretraziBtn";
             this.PretraziBtn.Size = new System.Drawing.Size(28, 29);
             this.PretraziBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -89,7 +88,7 @@
             this.SearchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.SearchBox.Location = new System.Drawing.Point(331, 37);
-            this.SearchBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchBox.Margin = new System.Windows.Forms.Padding(2);
             this.SearchBox.Multiline = true;
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(488, 29);
@@ -104,16 +103,16 @@
             this.label1.Location = new System.Drawing.Point(16, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 29);
+            this.label1.Size = new System.Drawing.Size(86, 29);
             this.label1.TabIndex = 32;
-            this.label1.Text = "Novosti";
+            this.label1.Text = "Članci";
             // 
             // UrediBtn
             // 
             this.UrediBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.UrediBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.UrediBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.UrediBtn.Location = new System.Drawing.Point(20, 200);
+            this.UrediBtn.Location = new System.Drawing.Point(21, 231);
             this.UrediBtn.Name = "UrediBtn";
             this.UrediBtn.Size = new System.Drawing.Size(211, 47);
             this.UrediBtn.TabIndex = 33;
@@ -121,24 +120,12 @@
             this.UrediBtn.UseVisualStyleBackColor = false;
             this.UrediBtn.Click += new System.EventHandler(this.UrediBtn_Click);
             // 
-            // KomentariBtn
-            // 
-            this.KomentariBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
-            this.KomentariBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.KomentariBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.KomentariBtn.Location = new System.Drawing.Point(20, 343);
-            this.KomentariBtn.Name = "KomentariBtn";
-            this.KomentariBtn.Size = new System.Drawing.Size(211, 47);
-            this.KomentariBtn.TabIndex = 35;
-            this.KomentariBtn.Text = "Komentari";
-            this.KomentariBtn.UseVisualStyleBackColor = false;
-            // 
             // ObrisiBtn
             // 
             this.ObrisiBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.ObrisiBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.ObrisiBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ObrisiBtn.Location = new System.Drawing.Point(20, 266);
+            this.ObrisiBtn.Location = new System.Drawing.Point(21, 314);
             this.ObrisiBtn.Name = "ObrisiBtn";
             this.ObrisiBtn.Size = new System.Drawing.Size(211, 47);
             this.ObrisiBtn.TabIndex = 34;
@@ -166,7 +153,6 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(849, 490);
             this.Controls.Add(this.NazadBtn);
-            this.Controls.Add(this.KomentariBtn);
             this.Controls.Add(this.ObrisiBtn);
             this.Controls.Add(this.UrediBtn);
             this.Controls.Add(this.label1);
@@ -175,7 +161,7 @@
             this.Controls.Add(this.PretraziBtn);
             this.Controls.Add(this.SearchBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ArticlesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ArticlesForm";
@@ -194,7 +180,6 @@
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button UrediBtn;
-        private System.Windows.Forms.Button KomentariBtn;
         private System.Windows.Forms.Button ObrisiBtn;
         private System.Windows.Forms.Button NazadBtn;
     }
