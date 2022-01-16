@@ -54,7 +54,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
                     article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
                     Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
                     article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId),
-                    tags.Contains(article.Tags))).FirstOrDefault();
+                    tags.Contains(article.Tags), 0)).FirstOrDefault();
 
                     if (_article != null)
                         recommendedArticles.Add(_article);

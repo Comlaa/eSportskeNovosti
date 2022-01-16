@@ -52,7 +52,6 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
 
         public async Task<List<ArticleVM>> Get50Articles(int userId)
         {
-            var haris = "Haris";
             var dictionary = new Dictionary<string, string>();
             var tags = _context.Favourites.Where(f => f.UserId == userId).Select(f => f.Tags).ToList();
             return await _context.Articles.Include(a => a.Category)
@@ -65,7 +64,8 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
             Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
             article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId),
-            tags.Contains(article.Tags))).ToListAsync();
+            tags.Contains(article.Tags),
+            article.ArticleRatings.Where(a => a.UserId == userId && a.ArticleId == article.Id).DefaultIfEmpty().Select(a => a.Rating).FirstOrDefault())).ToListAsync();
         }
 
         public async Task<List<ArticleVM>> Get50FavoritesArticles(int userId)
@@ -80,7 +80,8 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             new ArticleVM(article, article.Category.Name,
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
             Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
-            article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId), true)).ToListAsync();
+            article.SavedArticles.Any(a => a.ArticleId == article.Id && a.UserId == userId), true,
+            article.ArticleRatings.Where(a => a.UserId == userId && a.ArticleId == article.Id).DefaultIfEmpty().Select(a => a.Rating).FirstOrDefault())).ToListAsync();
         }
 
         public async Task<List<ArticleVM>> Get50SavedArticles(int userId)
@@ -97,7 +98,8 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             new ArticleVM(article, article.Category.Name,
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
             Math.Round(article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 2),
-            true, tags.Contains(article.Tags))).ToListAsync();
+            true, tags.Contains(article.Tags),
+            article.ArticleRatings.Where(a => a.UserId == userId && a.ArticleId == article.Id).DefaultIfEmpty().Select(a => a.Rating).FirstOrDefault())).ToListAsync();
         }
 
         public async Task<ArticleDTO> GetArticleById(int articleId)
@@ -116,7 +118,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             .Take(50).Select(article =>
             new ArticleVM(article, article.Category.Name,
             article.ArticleComments.Where(a => a.ArticleId == article.Id).Select(a => new ArticleCommentsVM(a.User.Username, a.Comment)).ToList(),
-            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average())).ToListAsync();
+            article.ArticleRatings.Where(a => a.ArticleId == article.Id).Select(x => x.Rating).DefaultIfEmpty().Average(), 0)).ToListAsync();
         }
 
         public async Task AddComment(CommentDTO comment)
@@ -128,6 +130,29 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
                 Comment = comment.Comment,
                 IsApproved = true
             });
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task AddRating(RatingDTO rating)
+        {
+            var ArticleExists = await _context.ArticleRatings.Where(ar => ar.UserId == rating.UserId && ar.ArticleId == rating.ArticleId).FirstOrDefaultAsync();
+
+            if (ArticleExists == null)
+            {
+                await _context.ArticleRatings.AddAsync(new ArticleRating
+                {
+                    ArticleId = rating.ArticleId,
+                    UserId = rating.UserId,
+                    Rating = rating.Rating,
+                });
+            }
+            else
+            {
+                ArticleExists.Rating = rating.Rating;
+                _context.ArticleRatings.Update(ArticleExists);
+            }
+
 
             await _context.SaveChangesAsync();
         }

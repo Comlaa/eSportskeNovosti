@@ -15,13 +15,14 @@ namespace ESN_Api.ESN_Api.dal.ViewModels
         public string Picture { get; set; }
         public bool Favorite { get; set; }
         public bool Saved { get; set; }
+        public int Rating { get; set; }
 
         public ArticleVM()
         {
 
         }
 
-        public ArticleVM(Article article, string category, List<ArticleCommentsVM> comments, double rating, bool saved, bool favorite)
+        public ArticleVM(Article article, string category, List<ArticleCommentsVM> comments, double rating, bool saved, bool favorite, int userRating = 0)
         {
             Id = article.Id;
             Title = article.Title;
@@ -34,9 +35,10 @@ namespace ESN_Api.ESN_Api.dal.ViewModels
             Comments = article.AllowComments ? "Dozvoljeni" : "Nisu dozvoljeni";
             Saved = saved;
             Favorite = favorite;
+            Rating = userRating;
         }
 
-        public ArticleVM(Article article, string category, List<ArticleCommentsVM> comments, double rating)
+        public ArticleVM(Article article, string category, List<ArticleCommentsVM> comments, double rating, int userRating = 0)
         {
             Id = article.Id;
             Title = article.Title;
@@ -47,6 +49,7 @@ namespace ESN_Api.ESN_Api.dal.ViewModels
             ArticleComments = comments;
             ArticleRating = rating;
             Comments = article.AllowComments ? "Dozvoljeni" : "Nisu dozvoljeni";
+            Rating = userRating;
         }
     }
 }

@@ -85,6 +85,12 @@ namespace ESN_Api.Controllers
             await _articleRepository.AddComment(comment);
         }
 
+        [HttpPut("article-rating")]
+        public async Task AddRating([FromBody] RatingDTO rating)
+        {
+            await _articleRepository.AddRating(rating);
+        }
+
         [HttpGet("comments")]
         public async Task<List<ArticleCommentsVM>> GetComments(int userId)
         {
