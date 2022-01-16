@@ -8,5 +8,6 @@ namespace ESN_Api.ESN_Api.dal.Repositories
         Task<int> GetUserId(string username);
         Task<List<UserVM>> GetUsersByUsername(string username);
         Task<bool> Login(string username, string password);
+        Task<bool> Register(RegisterDTO account);
     }
 }

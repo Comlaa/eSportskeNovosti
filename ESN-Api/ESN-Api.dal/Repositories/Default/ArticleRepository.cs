@@ -132,6 +132,12 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             await _context.SaveChangesAsync();
         }
 
+        public async Task<List<ArticleCommentsVM>> GetComments(int userId)
+        {
+            return await _context.ArticleComments.Include(ar => ar.Article).Where(ar => ar.UserId == userId).Select(ar =>
+                new ArticleCommentsVM(ar.Article.Title, ar.Comment)).ToListAsync();
+        }
+
         public async Task UpdateArticleFavorite(ArticleFavoritesDTO article)
         {
             var savedArticle = await _context.SavedArticles.FirstOrDefaultAsync(sa => sa.ArticleId == article.ArticleId);

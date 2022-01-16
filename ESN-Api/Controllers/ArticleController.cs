@@ -84,5 +84,11 @@ namespace ESN_Api.Controllers
         {
             await _articleRepository.AddComment(comment);
         }
+
+        [HttpGet("comments")]
+        public async Task<List<ArticleCommentsVM>> GetComments(int userId)
+        {
+            return await _articleRepository.GetComments(userId);
+        }
     }
 }

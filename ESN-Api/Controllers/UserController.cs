@@ -39,5 +39,11 @@ namespace ESN_Api.Controllers
             return await _userRepository.Login(user.Username, user.Password);
         }
 
+        [HttpPost("register")]
+        public async Task<bool> Register([FromBody] RegisterDTO account)
+        {
+            return await _userRepository.Register(account);
+        }
+
     }
 }

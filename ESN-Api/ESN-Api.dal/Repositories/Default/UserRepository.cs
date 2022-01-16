@@ -1,4 +1,5 @@
 ﻿using ESN_Api.ESN_Api.dal.Database;
+using ESN_Api.ESN_Api.dal.Domain;
 using ESN_Api.ESN_Api.dal.Helpers;
 using ESN_Api.ESN_Api.dal.ViewModels;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,25 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             }
 
             return false;
+        }
+
+        public async Task<bool> Register(RegisterDTO account)
+        {
+            byte[] pwSalt = PasswordHelper.GetSalt();
+            string pwHash = PasswordHelper.GetHash(account.Password, pwSalt);
+            _context.Users.Add(new User
+            {
+                Email = account.Email,
+                Username = account.Username,
+                FirstName = account.Firstname,
+                Lastname = account.Lastname,
+                GenderId = account.GenderId,
+                PasswordHash = pwHash,
+                PasswordSalt = Convert.ToBase64String(pwSalt),
+            });
+
+            await _context.SaveChangesAsync();
+            return true;
         }
     }
 }
