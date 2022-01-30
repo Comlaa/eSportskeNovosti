@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  esn-api:
+    image: ${DOCKER_REGISTRY-}esnapi
+    build:
+      context: .
+      dockerfile: ESN-Api/Dockerfile
+    ports:
+      - "8011:80"
+      - "8012:443"
+  sqlserver:
+    container_name: ESN-sql
+    image: mcr.microsoft.com/mssql/server
+    environment:
+     - ACCEPT_EULA=Y.
+     - SA_PASSWORD=Plavi.12!
+    ports:
+     - "1434:1433"
+    volumes: 
+      - ./data/sqldata:/var/opt/mssql/data
