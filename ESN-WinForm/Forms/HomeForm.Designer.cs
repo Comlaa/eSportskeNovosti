@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.label1 = new System.Windows.Forms.Label();
             this.AppName = new System.Windows.Forms.Label();
             this.VijestiBtn = new System.Windows.Forms.Button();
@@ -191,7 +190,6 @@
             this.Controls.Add(this.VijestiBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AppName);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeForm";

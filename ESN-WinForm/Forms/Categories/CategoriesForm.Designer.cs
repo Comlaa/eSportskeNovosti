@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriesForm));
             this.NazadBtn = new System.Windows.Forms.Button();
             this.ObrisiBtn = new System.Windows.Forms.Button();
             this.UrediBtn = new System.Windows.Forms.Button();
@@ -214,7 +213,6 @@
             this.Controls.Add(this.DodajBtn);
             this.Controls.Add(this.PretraziBtn);
             this.Controls.Add(this.SearchBox);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CategoriesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CategoriesForm";

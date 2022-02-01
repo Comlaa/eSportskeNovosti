@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersForm));
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.PretraziBtn = new System.Windows.Forms.Button();
             this.PretraziSveBtn = new System.Windows.Forms.Button();
@@ -144,7 +143,6 @@
             this.Controls.Add(this.PretraziBtn);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.SearchBox);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UsersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

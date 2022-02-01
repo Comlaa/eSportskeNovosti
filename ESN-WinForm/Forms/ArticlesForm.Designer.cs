@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArticlesForm));
             this.VijestiTabela = new System.Windows.Forms.DataGridView();
             this.DodajBtn = new System.Windows.Forms.Button();
             this.PretraziBtn = new System.Windows.Forms.PictureBox();
@@ -48,7 +47,7 @@
             this.VijestiTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.VijestiTabela.GridColor = System.Drawing.SystemColors.ControlLightLight;
             this.VijestiTabela.Location = new System.Drawing.Point(304, 107);
-            this.VijestiTabela.Margin = new System.Windows.Forms.Padding(2);
+            this.VijestiTabela.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.VijestiTabela.Name = "VijestiTabela";
             this.VijestiTabela.RowHeadersWidth = 51;
             this.VijestiTabela.RowTemplate.Height = 24;
@@ -74,7 +73,7 @@
             this.PretraziBtn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PretraziBtn.Image = global::ESN_WinForm.Properties.Resources.search;
             this.PretraziBtn.Location = new System.Drawing.Point(304, 37);
-            this.PretraziBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.PretraziBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PretraziBtn.Name = "PretraziBtn";
             this.PretraziBtn.Size = new System.Drawing.Size(28, 29);
             this.PretraziBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -88,7 +87,7 @@
             this.SearchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.SearchBox.Location = new System.Drawing.Point(331, 37);
-            this.SearchBox.Margin = new System.Windows.Forms.Padding(2);
+            this.SearchBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SearchBox.Multiline = true;
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(488, 29);
@@ -160,8 +159,7 @@
             this.Controls.Add(this.DodajBtn);
             this.Controls.Add(this.PretraziBtn);
             this.Controls.Add(this.SearchBox);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ArticlesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ArticlesForm";

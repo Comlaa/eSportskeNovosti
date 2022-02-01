@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddArticles));
             this.label1 = new System.Windows.Forms.Label();
             this.DodajBtn = new System.Windows.Forms.Button();
             this.NazadBtn = new System.Windows.Forms.Button();
@@ -197,7 +196,6 @@
             this.Controls.Add(this.NazadBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DodajBtn);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddArticles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj vijest";

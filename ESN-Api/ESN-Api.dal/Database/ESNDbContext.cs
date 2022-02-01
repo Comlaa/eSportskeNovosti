@@ -16,11 +16,12 @@ namespace ESN_Api.ESN_Api.dal.Database
         public DbSet<SavedArticle> SavedArticles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
-
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<UserNotification> UserNotifications { get; set; }
 
 
         public ESNDbContext(DbContextOptions<ESNDbContext> options) : base(options) { }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserRoleConfiguration).Assembly);
@@ -28,5 +29,5 @@ namespace ESN_Api.ESN_Api.dal.Database
         }
 
     }
-    
+
 }

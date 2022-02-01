@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditArticle));
             this.Tagovi = new System.Windows.Forms.TextBox();
             this.Kategorije = new System.Windows.Forms.ComboBox();
             this.Komentari = new System.Windows.Forms.CheckBox();
@@ -191,7 +190,6 @@
             this.Controls.Add(this.NazadBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DodajBtn);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditArticle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditArticle";

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditCategory));
             this.Description = new System.Windows.Forms.TextBox();
             this.Naziv = new System.Windows.Forms.TextBox();
             this.NazadBtn = new System.Windows.Forms.Button();
@@ -127,7 +126,6 @@
             this.Controls.Add(this.NazadBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DodajBtn);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditCategory";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditCategory";
