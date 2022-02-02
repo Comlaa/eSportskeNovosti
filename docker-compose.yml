@@ -11,7 +11,6 @@ services:
       - "8012:443"
     environment:
      - ASPNETCORE_ENVIRONMENT=Development
-     - ASPNETCORE_URLS=https://+:443;http://+:80
   sqlserver:
     container_name: ESN-sql
     image: mcr.microsoft.com/mssql/server
