@@ -5,7 +5,7 @@ namespace ESN_WinForm.Services
 {
     public static class ArticleService
     {
-        private static readonly string baseURL = "https://localhost:8012/Article/";
+        private static readonly string baseURL = "http://localhost:8012/Article/";
 
         public static async Task<string> GetAllArticles()
         {

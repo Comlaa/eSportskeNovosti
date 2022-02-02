@@ -6,7 +6,7 @@ namespace ESN_WinForm.Services
 {
     public class RoleService
     {
-        private static readonly string baseURL = "https://localhost:8012/Role/";
+        private static readonly string baseURL = "http://localhost:8012/Role/";
 
         public static async Task<string> GetAllRoles()
         {

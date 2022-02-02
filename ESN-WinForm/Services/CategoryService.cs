@@ -5,7 +5,7 @@ namespace ESN_WinForm.Services
 {
     public static class CategoryService
     {
-        private static readonly string baseURL = "https://localhost:8012/Category/";
+        private static readonly string baseURL = "http://localhost:8012/Category/";
 
         public static async Task<string> GetAllCategories()
         {

@@ -6,7 +6,7 @@ namespace ESN_WinForm.Services
 {
     public static class UserService
     {
-        private static readonly string baseURL = "https://localhost:8012/User/";
+        private static readonly string baseURL = "http://localhost:8012/User/";
 
         public static async Task<string> GetAllUsers()
         {
