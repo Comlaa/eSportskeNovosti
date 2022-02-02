@@ -15,9 +15,9 @@ namespace ESN_Api.Configuration
 
             builder.HasData(new UserNotification
             {
-                Id = 150,
+                Id = 2,
                 UserId = 3,
-                NotificationId = 1,
+                NotificationId = 2,
                 Read = false,
                 CreatedAt = new DateTime(2022, 2, 2, 18, 00, 00, DateTimeKind.Utc),
             });
