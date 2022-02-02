@@ -7,11 +7,7 @@ services:
       context: .
       dockerfile: ESN-Api/Dockerfile
     ports:
-      - "8011:80"
-      - "8012:443"
-    environment:
-     - ASPNETCORE_ENVIRONMENT=Development
-     - ASPNETCORE_URLS=https://+:443;http://+:80
+      - 5010:5010
   sqlserver:
     container_name: ESN-sql
     image: mcr.microsoft.com/mssql/server
