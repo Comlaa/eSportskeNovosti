@@ -9,13 +9,17 @@ namespace ESN_Api.Configuration
         {
             base.Configure(builder);
 
+            builder.HasOne(p => p.User)
+                   .WithMany(p => p.UserNotifications)
+                   .HasForeignKey(p => p.UserId);
+
             builder.HasData(new UserNotification
             {
-                Id = 1,
+                Id = 150,
                 UserId = 3,
                 NotificationId = 1,
                 Read = false,
-                CreatedAt = DateTime.Now,
+                CreatedAt = new DateTime(2022, 2, 2, 18, 00, 00, DateTimeKind.Utc),
             });
         }
     }

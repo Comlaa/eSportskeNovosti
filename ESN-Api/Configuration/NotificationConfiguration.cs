@@ -11,10 +11,10 @@ namespace ESN_Api.Configuration
 
             builder.HasData(new Notification
             {
-                Id = 1,
+                Id = 100,
                 ArticleId = 1,
-                NotificationDate = DateTime.Now,
-                CreatedAt = DateTime.Now,
+                NotificationDate = new DateTime(2022, 2, 2, 18, 00, 00, DateTimeKind.Utc),
+                CreatedAt = new DateTime(2022, 2, 2, 18, 00, 00, DateTimeKind.Utc),
             });
         }
     }

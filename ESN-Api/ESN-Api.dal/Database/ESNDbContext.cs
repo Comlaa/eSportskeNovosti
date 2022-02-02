@@ -29,5 +29,4 @@ namespace ESN_Api.ESN_Api.dal.Database
         }
 
     }
-
 }
