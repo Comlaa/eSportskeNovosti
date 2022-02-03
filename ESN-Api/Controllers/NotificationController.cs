@@ -15,10 +15,9 @@ namespace ESN_Api.Controllers
         }
 
         [HttpPost("notification")]
-        public async Task<string> AddNotification([FromBody] int articleId)
+        public async Task<bool> AddNotification([FromBody] int articleId)
         {
-            await _notificationRepository.AddNotification(articleId);
-            return "success";
+            return await _notificationRepository.AddNotification(articleId);
         }
 
         [HttpGet("notifications")]

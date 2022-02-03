@@ -21,18 +21,25 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             var article = await _articleRepository.GetArticleById(articleId);
             if (article != null)
             {
-                var notification = new Notification
-                {
-                    ArticleId = articleId,
-                    CreatedAt = DateTime.Now,
-                    NotificationDate = DateTime.Now,
-                };
+                var alreadyNotified = await _context.Notifications.FirstOrDefaultAsync(n => n.ArticleId.Equals(articleId));
+
+                if (alreadyNotified != null)
+                    return false;
+
+                var users = await _context.Users.Select(u => u.Id).ToListAsync();
+                var notification = new Notification(articleId);
 
                 await _context.Notifications.AddAsync(notification);
-                return await Task.FromResult(true);
+                await _context.SaveChangesAsync();
+
+                foreach (var user in users)
+                    await _context.UserNotifications.AddAsync(new UserNotification(notification.Id, user));
+
+                await _context.SaveChangesAsync();
+                return true;
             }
 
-            return await Task.FromResult(false);
+            return false;
         }
 
         public async Task DeleteNotification(int notificationId)

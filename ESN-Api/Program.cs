@@ -31,7 +31,6 @@ using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().Creat
     scope.ServiceProvider.GetService<ESNDbContext>().Database.Migrate();
 }
 
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
