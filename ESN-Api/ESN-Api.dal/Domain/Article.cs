@@ -14,6 +14,7 @@ namespace ESN_Api.ESN_Api.dal.Domain
         public List<ArticleComment> ArticleComments { get; set; }
         public List<SavedArticle> SavedArticles { get; set; }
         public List<ArticleRating> ArticleRatings { get; set; }
+        public Notification Notification { get; set; }
         public string Picture { get; set; }
 
         public Article()

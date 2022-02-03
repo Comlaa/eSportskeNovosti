@@ -1,4 +1,5 @@
 ﻿using ESN_WinForm.Forms.Articles;
+using ESN_WinForm.Helpers;
 using ESN_WinForm.Services;
 using Newtonsoft.Json;
 using System;
@@ -14,6 +15,8 @@ namespace ESN_WinForm.Forms
         {
             InitializeComponent();
             PopulateTable();
+            Error.Visible = false;
+            Success.Visible = false;
         }
 
         private void NazadBtn_Click(object sender, EventArgs e)
@@ -79,6 +82,25 @@ namespace ESN_WinForm.Forms
                 editArticle.ShowDialog();
                 PopulateTable();
                 Show();
+            }
+        }
+
+        private async void DodajNotifikaciju_Click(object sender, EventArgs e)
+        {
+            if (VijestiTabela.SelectedRows.Count > 0)
+            {
+                var selectedArticle = VijestiTabela.SelectedRows[0].DataBoundItem as DataRowView;
+                ArticleId = int.Parse(selectedArticle.Row.ItemArray[0].ToString());
+
+                var addNotification = await NotificationService.Add(ArticleId);
+                if (addNotification.Equals(Constants.Success))
+                    Success.Visible = true;
+                else
+                    Error.Visible = true;
+
+                await Delay.Wait3seconds();
+                Success.Visible = false;
+                Error.Visible = false;
             }
         }
     }
