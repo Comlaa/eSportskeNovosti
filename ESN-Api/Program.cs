@@ -4,6 +4,7 @@ using ESN_Api.ESN_Api.dal.Repositories.Default;
 using ESN_Api.Security;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(builder =>
             builder.SetIsOriginAllowed(_ => true)
@@ -24,6 +24,28 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(builder =>
 builder.Services.AddDbContext<ESNDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("eSportskeNovosti"), options => options.EnableRetryOnFailure());
+});
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ESN API", Version = "v1" });
+
+    c.AddSecurityDefinition("basicAuth", new OpenApiSecurityScheme
+    {
+        Type = SecuritySchemeType.Http,
+        Scheme = "basic"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "basicAuth" }
+                        },
+                        new string[]{}
+                    }
+                });
 });
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -49,17 +71,28 @@ using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().Creat
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    app.UseSwagger();
-    app.UseSwaggerUI();
 }
-app.UseCors();
 
-app.UseHttpsRedirection();
+app.UseSwagger();
+
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "ESN API");
+});
+
+app.UseRouting();
+
+app.UseCors();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.Run();

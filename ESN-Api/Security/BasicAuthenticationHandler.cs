@@ -12,11 +12,9 @@ namespace ESN_Api.Security
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
         private readonly IUserRepository _userRepository;
-        private readonly IRoleRepository _roleRepository;
-        public BasicAuthenticationHandler(IOptionsMonitor<AuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock, IUserRepository userRepository, IRoleRepository roleRepository) : base(options, logger, encoder, clock)
+        public BasicAuthenticationHandler(IOptionsMonitor<AuthenticationSchemeOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock, IUserRepository userRepository) : base(options, logger, encoder, clock)
         {
             _userRepository = userRepository;
-            _roleRepository = roleRepository;
         }
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
