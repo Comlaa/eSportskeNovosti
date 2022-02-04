@@ -56,16 +56,19 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             return await _context.Users.Where(x => x.Username.Contains(username)).Select(user => new UserVM(user)).ToListAsync();
         }
 
-        public async Task<bool> Login(string username, string password)
+        public async Task<User> Login(string username, string password)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(user => user.Username.Equals(username));
-            if (user != null)
-            {
-                var passwordSalt = Convert.FromBase64String(user.PasswordSalt);
-                return user.PasswordHash == PasswordHelper.GetHash(password, passwordSalt);
-            }
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username.Equals(username));
+            if (user == null)
+                throw new Exception("Korisnik ne postoji!");
 
-            return false;
+            var userWithRoles = await _context.Users.Include(u => u.Roles.Where(r => r.UserId == user.Id)).ThenInclude(r => r.Role).FirstOrDefaultAsync(u => u.Id == user.Id);
+
+            var passwordSalt = Convert.FromBase64String(user.PasswordSalt);
+            if (user.PasswordHash != PasswordHelper.GetHash(password, passwordSalt))
+                throw new Exception("Pogrešan username ili password");
+
+            return userWithRoles;
         }
 
         public async Task<bool> Register(RegisterDTO account)

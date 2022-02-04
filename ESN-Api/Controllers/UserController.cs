@@ -1,12 +1,14 @@
 using ESN_Api.ESN_Api.dal.DTO;
 using ESN_Api.ESN_Api.dal.Repositories;
 using ESN_Api.ESN_Api.dal.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ESN_Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
@@ -15,6 +17,7 @@ namespace ESN_Api.Controllers
             _userRepository = userRepository;
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [HttpGet("users")]
         public async Task<List<UserVM>> GetUsers()
         {
@@ -27,6 +30,7 @@ namespace ESN_Api.Controllers
             return await _userRepository.GetUserId(username);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [HttpGet("users-by-username")]
         public async Task<List<UserVM>> GetUsersByUsername(string username)
         {
@@ -36,7 +40,8 @@ namespace ESN_Api.Controllers
         [HttpPut("login")]
         public async Task<bool> Login([FromBody] LoginDTO user)
         {
-            return await _userRepository.Login(user.Username, user.Password);
+            var loginResponse = await _userRepository.Login(user.Username, user.Password);
+            return loginResponse != null;
         }
 
         [HttpPost("register")]
@@ -51,6 +56,7 @@ namespace ESN_Api.Controllers
             return await _userRepository.GetUserById(userId);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [HttpPut("user")]
         public async Task<bool> EditUser(UserVM user)
         {

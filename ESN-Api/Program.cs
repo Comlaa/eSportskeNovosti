@@ -1,6 +1,8 @@
 using ESN_Api.ESN_Api.dal.Database;
 using ESN_Api.ESN_Api.dal.Repositories;
 using ESN_Api.ESN_Api.dal.Repositories.Default;
+using ESN_Api.Security;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +33,10 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 builder.Services.AddScoped<IRecommendationRepository, RecommendationRepository>();
 
+builder.Services.AddAuthentication("BasicAuthentication")
+               .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
+
 var app = builder.Build();
 
 using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
@@ -41,12 +47,15 @@ using (var scope = app.Services.GetRequiredService<IServiceScopeFactory>().Creat
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 app.UseCors();
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

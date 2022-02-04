@@ -10,7 +10,7 @@ namespace ESN_WinForm.Forms
         {
             InitializeComponent();
             var datum = DateTime.Now.ToString("f");
-            Datum.Text = datum.Remove(datum.Length - 5);
+            Datum.Text = datum.Remove(datum.Length - 7);
         }
 
         private void VijestiBtn_Click(object sender, EventArgs e)
@@ -47,6 +47,7 @@ namespace ESN_WinForm.Forms
 
         private void OdjaviBtn_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Reload();
             this.DialogResult = DialogResult.OK;
         }
     }

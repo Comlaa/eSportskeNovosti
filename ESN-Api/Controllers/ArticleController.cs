@@ -1,12 +1,14 @@
 using ESN_Api.ESN_Api.dal.DTO;
 using ESN_Api.ESN_Api.dal.Repositories;
 using ESN_Api.ESN_Api.dal.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ESN_Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize]
     public class ArticleController : ControllerBase
     {
         private readonly IArticleRepository _articleRepository;
@@ -18,6 +20,7 @@ namespace ESN_Api.Controllers
             _recommendationRepository = recommendationRepository;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("article")]
         public async Task<string> AddArticle([FromBody] ArticleDTO article)
         {
@@ -55,12 +58,14 @@ namespace ESN_Api.Controllers
             return await _articleRepository.GetArticleByTitle(title);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("article")]
         public async Task DeleteArticle(int articleId)
         {
             await _articleRepository.DeleteArticle(articleId);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [HttpPut("article")]
         public async Task EditArticle([FromBody] ArticleDTO newArticle)
         {
