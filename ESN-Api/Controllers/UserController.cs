@@ -44,6 +44,7 @@ namespace ESN_Api.Controllers
             return loginResponse != null;
         }
 
+        [AllowAnonymous]
         [HttpPost("register")]
         public async Task<bool> Register([FromBody] RegisterDTO account)
         {
