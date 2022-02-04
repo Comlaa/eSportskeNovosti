@@ -47,6 +47,7 @@ namespace ESN_WinForm.Forms
 
         private void OdjaviBtn_Click(object sender, EventArgs e)
         {
+            Properties.Settings.Default.Reload();
             this.DialogResult = DialogResult.OK;
         }
     }

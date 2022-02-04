@@ -5,11 +5,13 @@ namespace ESN_WinForm.Helpers
 {
     public static class HTTPClient
     {
+        private static string SvcCredentials = Properties.Settings.Default.SvcSetting;
         public static async Task<string> Get(string baseUrl, string endpoint, object parameters = null)
         {
             var url = parameters == null ? baseUrl + endpoint : baseUrl + endpoint + parameters;
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + SvcCredentials);
                 using (HttpResponseMessage response = await client.GetAsync(url))
                 {
                     using (HttpContent content = response.Content)

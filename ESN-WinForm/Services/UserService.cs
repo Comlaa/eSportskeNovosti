@@ -1,5 +1,8 @@
 ﻿using ESN_WinForm.DTO;
 using ESN_WinForm.Helpers;
+using System;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ESN_WinForm.Services
@@ -20,9 +23,23 @@ namespace ESN_WinForm.Services
 
         public static async Task<string> Login(string username, string password)
         {
-            LoginDTO loginData = new LoginDTO { Username = username, Password = password };
 
-            return await HTTPClient.Put(baseURL, "login", loginData);
+            var ISO_8859_1 = Encoding.GetEncoding("ISO-8859-1");
+            var svcCredentials = Convert.ToBase64String(ISO_8859_1.GetBytes(username + ":" + password));
+            LoginDTO loginData = new LoginDTO { Username = username, Password = password };
+            Properties.Settings.Default.SvcSetting = svcCredentials;
+            using (HttpClient client = new HttpClient())
+            {
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + svcCredentials);
+                using (HttpResponseMessage response = await client.PutAsJsonAsync(baseURL + "login", loginData))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        return await content.ReadAsStringAsync();
+                    }
+                }
+            }
+            //return await HTTPClient.Put(baseURL, "login", loginData);
         }
     }
 }
