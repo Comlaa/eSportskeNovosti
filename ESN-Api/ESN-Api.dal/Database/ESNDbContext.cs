@@ -19,6 +19,7 @@ namespace ESN_Api.ESN_Api.dal.Database
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<UserNotification> UserNotifications { get; set; }
         public DbSet<SupportTicket> SupportTickets { get; set; }
+        public DbSet<Fixture> Fixtures { get; set; }
 
         public ESNDbContext(DbContextOptions<ESNDbContext> options) : base(options) { }
 

@@ -1,3 +1,4 @@
+using ESN_Api.ESN_Api.dal.DTO;
 using ESN_Api.ESN_Api.dal.Repositories;
 using ESN_Api.ESN_Api.dal.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -33,9 +34,9 @@ namespace ESN_Api.Controllers
         }
 
         [HttpPut("notification")]
-        public async Task MarkNotificationAsRead(int notificationId, int userId)
+        public async Task MarkNotificationAsRead([FromBody] NotificationDTO notification)
         {
-            await _notificationRepository.MarkNotificationAsRead(notificationId, userId);
+            await _notificationRepository.MarkNotificationAsRead(notification.NotificationId, notification.UserId);
         }
 
         [HttpDelete("notification")]

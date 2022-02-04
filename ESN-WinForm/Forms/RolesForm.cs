@@ -43,7 +43,7 @@ namespace ESN_WinForm.Forms
                 RoleDTO role = new RoleDTO
                 {
                     Name = Naziv.Text,
-                    Permissions = Permisije.Text,
+                    Description = Permisije.Text,
                 };
                 var response = await RoleService.Add(role);
                 PopulateTable();

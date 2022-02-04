@@ -40,6 +40,7 @@
             this.OdjaviBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SupportTicketBtn = new System.Windows.Forms.Button();
+            this.FixturesBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,7 +78,7 @@
             this.VijestiBtn.Location = new System.Drawing.Point(79, 166);
             this.VijestiBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VijestiBtn.Name = "VijestiBtn";
-            this.VijestiBtn.Size = new System.Drawing.Size(434, 75);
+            this.VijestiBtn.Size = new System.Drawing.Size(434, 63);
             this.VijestiBtn.TabIndex = 9;
             this.VijestiBtn.Text = "Članci";
             this.VijestiBtn.UseVisualStyleBackColor = false;
@@ -88,10 +89,10 @@
             this.KorisniciBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.KorisniciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.KorisniciBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.KorisniciBtn.Location = new System.Drawing.Point(79, 270);
+            this.KorisniciBtn.Location = new System.Drawing.Point(79, 255);
             this.KorisniciBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.KorisniciBtn.Name = "KorisniciBtn";
-            this.KorisniciBtn.Size = new System.Drawing.Size(434, 78);
+            this.KorisniciBtn.Size = new System.Drawing.Size(434, 63);
             this.KorisniciBtn.TabIndex = 10;
             this.KorisniciBtn.Text = "Korisnici";
             this.KorisniciBtn.UseVisualStyleBackColor = false;
@@ -102,10 +103,10 @@
             this.RoleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.RoleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.RoleBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RoleBtn.Location = new System.Drawing.Point(79, 383);
+            this.RoleBtn.Location = new System.Drawing.Point(79, 343);
             this.RoleBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RoleBtn.Name = "RoleBtn";
-            this.RoleBtn.Size = new System.Drawing.Size(434, 78);
+            this.RoleBtn.Size = new System.Drawing.Size(434, 63);
             this.RoleBtn.TabIndex = 11;
             this.RoleBtn.Text = "Role";
             this.RoleBtn.UseVisualStyleBackColor = false;
@@ -116,10 +117,10 @@
             this.KategorijeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.KategorijeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.KategorijeBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.KategorijeBtn.Location = new System.Drawing.Point(79, 493);
+            this.KategorijeBtn.Location = new System.Drawing.Point(79, 434);
             this.KategorijeBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.KategorijeBtn.Name = "KategorijeBtn";
-            this.KategorijeBtn.Size = new System.Drawing.Size(434, 77);
+            this.KategorijeBtn.Size = new System.Drawing.Size(434, 63);
             this.KategorijeBtn.TabIndex = 12;
             this.KategorijeBtn.Text = "Kategorije";
             this.KategorijeBtn.UseVisualStyleBackColor = false;
@@ -190,14 +191,28 @@
             this.SupportTicketBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.SupportTicketBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.SupportTicketBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.SupportTicketBtn.Location = new System.Drawing.Point(79, 603);
+            this.SupportTicketBtn.Location = new System.Drawing.Point(79, 521);
             this.SupportTicketBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SupportTicketBtn.Name = "SupportTicketBtn";
-            this.SupportTicketBtn.Size = new System.Drawing.Size(434, 77);
+            this.SupportTicketBtn.Size = new System.Drawing.Size(434, 63);
             this.SupportTicketBtn.TabIndex = 20;
             this.SupportTicketBtn.Text = "Podrška korisnicima";
             this.SupportTicketBtn.UseVisualStyleBackColor = false;
             this.SupportTicketBtn.Click += new System.EventHandler(this.SupportTicketBtn_Click);
+            // 
+            // FixturesBtn
+            // 
+            this.FixturesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
+            this.FixturesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.FixturesBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.FixturesBtn.Location = new System.Drawing.Point(79, 609);
+            this.FixturesBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FixturesBtn.Name = "FixturesBtn";
+            this.FixturesBtn.Size = new System.Drawing.Size(434, 63);
+            this.FixturesBtn.TabIndex = 21;
+            this.FixturesBtn.Text = "Rezultati";
+            this.FixturesBtn.UseVisualStyleBackColor = false;
+            this.FixturesBtn.Click += new System.EventHandler(this.FixturesBtn_Click);
             // 
             // HomeForm
             // 
@@ -205,6 +220,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1274, 754);
+            this.Controls.Add(this.FixturesBtn);
             this.Controls.Add(this.SupportTicketBtn);
             this.Controls.Add(this.OdjaviBtn);
             this.Controls.Add(this.Datum);
@@ -241,5 +257,6 @@
         private System.Windows.Forms.Label Datum;
         private System.Windows.Forms.Button OdjaviBtn;
         private System.Windows.Forms.Button SupportTicketBtn;
+        private System.Windows.Forms.Button FixturesBtn;
     }
 }

@@ -22,7 +22,7 @@ namespace ESN_WinForm.Forms.Roles
             {
                 var role = JsonConvert.DeserializeObject<RoleDTO>(response);
                 Naziv.Text = role.Name;
-                Permisije.Text = role.Permissions;
+                Permisije.Text = role.Description;
             }
         }
 
@@ -47,7 +47,7 @@ namespace ESN_WinForm.Forms.Roles
                 RoleDTO role = new RoleDTO
                 {
                     Name = Naziv.Text,
-                    Permissions = Permisije.Text,
+                    Description = Permisije.Text,
                     Id = RolesForm.RoleId
                 };
                 await RoleService.Edit(role);

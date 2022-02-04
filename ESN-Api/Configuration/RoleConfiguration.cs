@@ -15,21 +15,21 @@ namespace ESN_Api.Configuration
                 {
                     Id=1,
                     Name="Admin",
-                    Permissions = "Read, Write, Edit, Create, Delete",
+                    Description = "Admin related role. Admin has all the rights on the system.",
                     CreatedAt= new DateTime(2022, 1, 2, 18, 00, 00, DateTimeKind.Utc)
                 },
                 new Role
                 {
                     Id=2,
                     Name="Editor",
-                    Permissions = "Read, Write, Edit",
+                    Description = "Editor related role. Has less rights than admin, but more than User role",
                     CreatedAt= new DateTime(2022, 1, 2, 18, 00, 00, DateTimeKind.Utc)
                 },
                 new Role
                 {
                     Id=3,
                     Name="User",
-                    Permissions = "Read, Write",
+                    Description = "User related role",
                     CreatedAt= new DateTime(2022, 1, 2, 18, 00, 00, DateTimeKind.Utc)
                 },
             });
