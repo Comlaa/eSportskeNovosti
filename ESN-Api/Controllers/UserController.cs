@@ -71,10 +71,10 @@ namespace ESN_Api.Controllers
             return await _userRepository.GetSupportTickets();
         }
 
-        [HttpPut("support-ticket")]
-        public async Task AddSupportTicket([FromBody] TicketVM ticket)
+        [HttpPost("support-ticket")]
+        public async Task<bool> AddSupportTicket([FromBody] TicketVM ticket)
         {
-            await _userRepository.AddSupportTicket(ticket);
+            return await _userRepository.AddSupportTicket(ticket);
         }
 
     }

@@ -90,7 +90,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             return true;
         }
 
-        public async Task AddSupportTicket(TicketVM ticket)
+        public async Task<bool> AddSupportTicket(TicketVM ticket)
         {
             var user = _context.Users.FirstOrDefaultAsync(u => u.Id == ticket.UserId);
             if (user == null)
@@ -98,6 +98,8 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
 
             await _context.SupportTickets.AddAsync(new SupportTicket(ticket));
             await _context.SaveChangesAsync();
+
+            return true;
         }
 
         public async Task<List<TicketVM>> GetSupportTickets()
