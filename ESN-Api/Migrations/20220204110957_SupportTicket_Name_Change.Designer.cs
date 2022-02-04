@@ -4,6 +4,7 @@ using ESN_Api.ESN_Api.dal.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ESN_Api.Migrations
 {
     [DbContext(typeof(ESNDbContext))]
-    partial class ESNDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220204110957_SupportTicket_Name_Change")]
+    partial class SupportTicket_Name_Change
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

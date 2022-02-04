@@ -50,5 +50,13 @@ namespace ESN_WinForm.Forms
             Properties.Settings.Default.Reload();
             this.DialogResult = DialogResult.OK;
         }
+
+        private void SupportTicketBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            SupportForm form = new SupportForm();
+            form.ShowDialog();
+            Show();
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace ESN_Api.ESN_Api.dal.Database
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<UserNotification> UserNotifications { get; set; }
+        public DbSet<SupportTicket> SupportTickets { get; set; }
 
         public ESNDbContext(DbContextOptions<ESNDbContext> options) : base(options) { }
 

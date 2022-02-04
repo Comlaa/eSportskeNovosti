@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddArticles));
             this.label1 = new System.Windows.Forms.Label();
             this.DodajBtn = new System.Windows.Forms.Button();
             this.NazadBtn = new System.Windows.Forms.Button();
@@ -51,10 +50,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.8F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
-            this.label1.Location = new System.Drawing.Point(23, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(34, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 29);
+            this.label1.Size = new System.Drawing.Size(237, 40);
             this.label1.TabIndex = 36;
             this.label1.Text = "Dodaj članak";
             // 
@@ -63,9 +61,10 @@
             this.DodajBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.DodajBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.DodajBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.DodajBtn.Location = new System.Drawing.Point(615, 420);
+            this.DodajBtn.Location = new System.Drawing.Point(922, 646);
+            this.DodajBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DodajBtn.Name = "DodajBtn";
-            this.DodajBtn.Size = new System.Drawing.Size(211, 47);
+            this.DodajBtn.Size = new System.Drawing.Size(316, 72);
             this.DodajBtn.TabIndex = 35;
             this.DodajBtn.Text = "Snimi";
             this.DodajBtn.UseVisualStyleBackColor = false;
@@ -76,9 +75,10 @@
             this.NazadBtn.BackColor = System.Drawing.Color.DarkGray;
             this.NazadBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.NazadBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.NazadBtn.Location = new System.Drawing.Point(387, 420);
+            this.NazadBtn.Location = new System.Drawing.Point(580, 646);
+            this.NazadBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NazadBtn.Name = "NazadBtn";
-            this.NazadBtn.Size = new System.Drawing.Size(211, 47);
+            this.NazadBtn.Size = new System.Drawing.Size(316, 72);
             this.NazadBtn.TabIndex = 37;
             this.NazadBtn.Text = "Nazad";
             this.NazadBtn.UseVisualStyleBackColor = false;
@@ -89,11 +89,10 @@
             this.Naziv.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Naziv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Naziv.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.Naziv.Location = new System.Drawing.Point(28, 89);
-            this.Naziv.Margin = new System.Windows.Forms.Padding(2);
+            this.Naziv.Location = new System.Drawing.Point(42, 137);
             this.Naziv.Multiline = true;
             this.Naziv.Name = "Naziv";
-            this.Naziv.Size = new System.Drawing.Size(355, 26);
+            this.Naziv.Size = new System.Drawing.Size(532, 39);
             this.Naziv.TabIndex = 38;
             this.Naziv.Click += new System.EventHandler(this.Naziv_Click);
             this.Naziv.Leave += new System.EventHandler(this.Naziv_Leave);
@@ -102,10 +101,11 @@
             // 
             this.Tekst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Tekst.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.Tekst.Location = new System.Drawing.Point(28, 180);
+            this.Tekst.Location = new System.Drawing.Point(42, 277);
+            this.Tekst.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Tekst.Multiline = true;
             this.Tekst.Name = "Tekst";
-            this.Tekst.Size = new System.Drawing.Size(355, 192);
+            this.Tekst.Size = new System.Drawing.Size(532, 294);
             this.Tekst.TabIndex = 39;
             this.Tekst.Click += new System.EventHandler(this.Tekst_Click);
             this.Tekst.Leave += new System.EventHandler(this.Tekst_Leave);
@@ -115,11 +115,12 @@
             this.Datum.CustomFormat = "dddd dd.MM.yyyy HH:mm";
             this.Datum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.Datum.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Datum.Location = new System.Drawing.Point(28, 133);
+            this.Datum.Location = new System.Drawing.Point(42, 205);
+            this.Datum.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Datum.MinDate = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
-            this.Datum.MinimumSize = new System.Drawing.Size(29, 29);
+            this.Datum.MinimumSize = new System.Drawing.Size(42, 29);
             this.Datum.Name = "Datum";
-            this.Datum.Size = new System.Drawing.Size(355, 29);
+            this.Datum.Size = new System.Drawing.Size(530, 31);
             this.Datum.TabIndex = 40;
             this.Datum.Value = new System.DateTime(2022, 1, 1, 0, 0, 0, 0);
             // 
@@ -128,9 +129,10 @@
             this.Komentari.AutoSize = true;
             this.Komentari.BackColor = System.Drawing.SystemColors.Control;
             this.Komentari.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Komentari.Location = new System.Drawing.Point(462, 391);
+            this.Komentari.Location = new System.Drawing.Point(693, 602);
+            this.Komentari.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Komentari.Name = "Komentari";
-            this.Komentari.Size = new System.Drawing.Size(91, 21);
+            this.Komentari.Size = new System.Drawing.Size(135, 29);
             this.Komentari.TabIndex = 42;
             this.Komentari.Text = "Komentari";
             this.Komentari.UseVisualStyleBackColor = false;
@@ -144,9 +146,10 @@
             this.slika.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.slika.Cursor = System.Windows.Forms.Cursors.Hand;
             this.slika.Image = global::ESN_WinForm.Properties.Resources.post_photo;
-            this.slika.Location = new System.Drawing.Point(462, 180);
+            this.slika.Location = new System.Drawing.Point(693, 277);
+            this.slika.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.slika.Name = "slika";
-            this.slika.Size = new System.Drawing.Size(355, 192);
+            this.slika.Size = new System.Drawing.Size(532, 294);
             this.slika.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.slika.TabIndex = 41;
             this.slika.TabStop = false;
@@ -156,12 +159,13 @@
             // 
             this.Kategorije.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.Kategorije.FormattingEnabled = true;
-            this.Kategorije.ItemHeight = 17;
-            this.Kategorije.Location = new System.Drawing.Point(462, 133);
+            this.Kategorije.ItemHeight = 25;
+            this.Kategorije.Location = new System.Drawing.Point(693, 205);
+            this.Kategorije.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Kategorije.MaxDropDownItems = 20;
-            this.Kategorije.MinimumSize = new System.Drawing.Size(29, 0);
+            this.Kategorije.MinimumSize = new System.Drawing.Size(42, 0);
             this.Kategorije.Name = "Kategorije";
-            this.Kategorije.Size = new System.Drawing.Size(355, 25);
+            this.Kategorije.Size = new System.Drawing.Size(530, 33);
             this.Kategorije.TabIndex = 44;
             // 
             // Tagovi
@@ -169,11 +173,10 @@
             this.Tagovi.BackColor = System.Drawing.SystemColors.HighlightText;
             this.Tagovi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Tagovi.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.Tagovi.Location = new System.Drawing.Point(462, 89);
-            this.Tagovi.Margin = new System.Windows.Forms.Padding(2);
+            this.Tagovi.Location = new System.Drawing.Point(693, 137);
             this.Tagovi.Multiline = true;
             this.Tagovi.Name = "Tagovi";
-            this.Tagovi.Size = new System.Drawing.Size(355, 26);
+            this.Tagovi.Size = new System.Drawing.Size(532, 39);
             this.Tagovi.TabIndex = 45;
             this.Tagovi.Click += new System.EventHandler(this.Tagovi_Click);
             this.Tagovi.Leave += new System.EventHandler(this.Tagovi_Leave);
@@ -184,9 +187,9 @@
             // 
             // AddArticles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 490);
+            this.ClientSize = new System.Drawing.Size(1274, 754);
             this.Controls.Add(this.Tagovi);
             this.Controls.Add(this.Kategorije);
             this.Controls.Add(this.Komentari);
@@ -197,7 +200,7 @@
             this.Controls.Add(this.NazadBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DodajBtn);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddArticles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj vijest";

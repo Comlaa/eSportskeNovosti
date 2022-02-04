@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.label1 = new System.Windows.Forms.Label();
             this.AppName = new System.Windows.Forms.Label();
             this.VijestiBtn = new System.Windows.Forms.Button();
@@ -40,6 +39,7 @@
             this.Datum = new System.Windows.Forms.Label();
             this.OdjaviBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.SupportTicketBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,9 +49,10 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
-            this.label1.Location = new System.Drawing.Point(33, 43);
+            this.label1.Location = new System.Drawing.Point(50, 66);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 31);
+            this.label1.Size = new System.Drawing.Size(43, 47);
             this.label1.TabIndex = 3;
             this.label1.Text = "e";
             // 
@@ -61,9 +62,10 @@
             this.AppName.BackColor = System.Drawing.Color.Transparent;
             this.AppName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
             this.AppName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.AppName.Location = new System.Drawing.Point(54, 43);
+            this.AppName.Location = new System.Drawing.Point(81, 66);
+            this.AppName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AppName.Name = "AppName";
-            this.AppName.Size = new System.Drawing.Size(214, 31);
+            this.AppName.Size = new System.Drawing.Size(322, 47);
             this.AppName.TabIndex = 2;
             this.AppName.Text = "SportskeNovosti";
             // 
@@ -72,9 +74,10 @@
             this.VijestiBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.VijestiBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.VijestiBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.VijestiBtn.Location = new System.Drawing.Point(60, 150);
+            this.VijestiBtn.Location = new System.Drawing.Point(79, 166);
+            this.VijestiBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.VijestiBtn.Name = "VijestiBtn";
-            this.VijestiBtn.Size = new System.Drawing.Size(289, 49);
+            this.VijestiBtn.Size = new System.Drawing.Size(434, 75);
             this.VijestiBtn.TabIndex = 9;
             this.VijestiBtn.Text = "Članci";
             this.VijestiBtn.UseVisualStyleBackColor = false;
@@ -85,9 +88,10 @@
             this.KorisniciBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.KorisniciBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.KorisniciBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.KorisniciBtn.Location = new System.Drawing.Point(60, 218);
+            this.KorisniciBtn.Location = new System.Drawing.Point(79, 270);
+            this.KorisniciBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.KorisniciBtn.Name = "KorisniciBtn";
-            this.KorisniciBtn.Size = new System.Drawing.Size(289, 51);
+            this.KorisniciBtn.Size = new System.Drawing.Size(434, 78);
             this.KorisniciBtn.TabIndex = 10;
             this.KorisniciBtn.Text = "Korisnici";
             this.KorisniciBtn.UseVisualStyleBackColor = false;
@@ -98,9 +102,10 @@
             this.RoleBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.RoleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.RoleBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RoleBtn.Location = new System.Drawing.Point(60, 291);
+            this.RoleBtn.Location = new System.Drawing.Point(79, 383);
+            this.RoleBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RoleBtn.Name = "RoleBtn";
-            this.RoleBtn.Size = new System.Drawing.Size(289, 51);
+            this.RoleBtn.Size = new System.Drawing.Size(434, 78);
             this.RoleBtn.TabIndex = 11;
             this.RoleBtn.Text = "Role";
             this.RoleBtn.UseVisualStyleBackColor = false;
@@ -111,9 +116,10 @@
             this.KategorijeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.KategorijeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.KategorijeBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.KategorijeBtn.Location = new System.Drawing.Point(60, 363);
+            this.KategorijeBtn.Location = new System.Drawing.Point(79, 493);
+            this.KategorijeBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.KategorijeBtn.Name = "KategorijeBtn";
-            this.KategorijeBtn.Size = new System.Drawing.Size(289, 50);
+            this.KategorijeBtn.Size = new System.Drawing.Size(434, 77);
             this.KategorijeBtn.TabIndex = 12;
             this.KategorijeBtn.Text = "Kategorije";
             this.KategorijeBtn.UseVisualStyleBackColor = false;
@@ -123,9 +129,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.label3.Location = new System.Drawing.Point(566, 349);
+            this.label3.Location = new System.Drawing.Point(849, 537);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 24);
+            this.label3.Size = new System.Drawing.Size(189, 33);
             this.label3.TabIndex = 15;
             this.label3.Text = "Dobrodošao, ";
             // 
@@ -134,9 +141,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
-            this.label4.Location = new System.Drawing.Point(683, 349);
+            this.label4.Location = new System.Drawing.Point(1024, 537);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 24);
+            this.label4.Size = new System.Drawing.Size(98, 33);
             this.label4.TabIndex = 16;
             this.label4.Text = "Admin";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -144,9 +152,10 @@
             // Datum
             // 
             this.Datum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
-            this.Datum.Location = new System.Drawing.Point(526, 379);
+            this.Datum.Location = new System.Drawing.Point(789, 583);
+            this.Datum.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Datum.Name = "Datum";
-            this.Datum.Size = new System.Drawing.Size(259, 24);
+            this.Datum.Size = new System.Drawing.Size(388, 37);
             this.Datum.TabIndex = 18;
             this.Datum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -155,9 +164,10 @@
             this.OdjaviBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
             this.OdjaviBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.OdjaviBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.OdjaviBtn.Location = new System.Drawing.Point(662, 443);
+            this.OdjaviBtn.Location = new System.Drawing.Point(993, 682);
+            this.OdjaviBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OdjaviBtn.Name = "OdjaviBtn";
-            this.OdjaviBtn.Size = new System.Drawing.Size(174, 37);
+            this.OdjaviBtn.Size = new System.Drawing.Size(261, 57);
             this.OdjaviBtn.TabIndex = 19;
             this.OdjaviBtn.Text = "Odjavi se";
             this.OdjaviBtn.UseVisualStyleBackColor = false;
@@ -167,19 +177,35 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::ESN_WinForm.Properties.Resources.male_avatar;
-            this.pictureBox1.Location = new System.Drawing.Point(526, 108);
+            this.pictureBox1.Location = new System.Drawing.Point(789, 166);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(260, 234);
+            this.pictureBox1.Size = new System.Drawing.Size(390, 360);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // SupportTicketBtn
+            // 
+            this.SupportTicketBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
+            this.SupportTicketBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.SupportTicketBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.SupportTicketBtn.Location = new System.Drawing.Point(79, 603);
+            this.SupportTicketBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SupportTicketBtn.Name = "SupportTicketBtn";
+            this.SupportTicketBtn.Size = new System.Drawing.Size(434, 77);
+            this.SupportTicketBtn.TabIndex = 20;
+            this.SupportTicketBtn.Text = "Podrška korisnicima";
+            this.SupportTicketBtn.UseVisualStyleBackColor = false;
+            this.SupportTicketBtn.Click += new System.EventHandler(this.SupportTicketBtn_Click);
+            // 
             // HomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(849, 490);
+            this.ClientSize = new System.Drawing.Size(1274, 754);
+            this.Controls.Add(this.SupportTicketBtn);
             this.Controls.Add(this.OdjaviBtn);
             this.Controls.Add(this.Datum);
             this.Controls.Add(this.label4);
@@ -191,7 +217,7 @@
             this.Controls.Add(this.VijestiBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AppName);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "HomeForm";
@@ -214,5 +240,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Datum;
         private System.Windows.Forms.Button OdjaviBtn;
+        private System.Windows.Forms.Button SupportTicketBtn;
     }
 }
