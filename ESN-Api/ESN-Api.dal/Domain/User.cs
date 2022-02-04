@@ -11,6 +11,7 @@
         public List<SavedArticle> SavedArticles { get; set; }
         public List<ArticleRating> ArticleRatings { get; set; }
         public List<UserNotification> UserNotifications { get; set; }
+        public List<SupportTicket> SupportTickets { get; set; }
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
         public string Username { get; set; }

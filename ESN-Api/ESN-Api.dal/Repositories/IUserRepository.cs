@@ -12,5 +12,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories
         Task<User> Login(string username, string password);
         Task<bool> Register(RegisterDTO account);
         Task<bool> Edit(UserVM user);
+        Task AddSupportTicket(TicketVM ticket);
+        Task<List<TicketVM>> GetSupportTickets();
     }
 }

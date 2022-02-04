@@ -64,5 +64,18 @@ namespace ESN_Api.Controllers
             return await _userRepository.Edit(user);
         }
 
+        [Authorize(Roles = "Admin")]
+        [HttpGet("support-tickets")]
+        public async Task<List<TicketVM>> GetSupportTickets()
+        {
+            return await _userRepository.GetSupportTickets();
+        }
+
+        [HttpPut("support-ticket")]
+        public async Task AddSupportTicket([FromBody] TicketVM ticket)
+        {
+            await _userRepository.AddSupportTicket(ticket);
+        }
+
     }
 }

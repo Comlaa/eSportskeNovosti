@@ -16,6 +16,11 @@ namespace ESN_WinForm.Services
             return await HTTPClient.Get(baseURL, "users");
         }
 
+        public static async Task<string> GetSupportTickets()
+        {
+            return await HTTPClient.Get(baseURL, "support-tickets");
+        }
+
         public static async Task<string> GetAllUsersByUsername(string search)
         {
             return await HTTPClient.Get(baseURL, "users-by-username?username=", search);

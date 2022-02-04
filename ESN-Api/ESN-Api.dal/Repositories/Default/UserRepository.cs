@@ -89,5 +89,20 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task AddSupportTicket(TicketVM ticket)
+        {
+            var user = _context.Users.FirstOrDefaultAsync(u => u.Id == ticket.UserId);
+            if (user == null)
+                throw new Exception("Korisnik ne postoji!");
+
+            await _context.SupportTickets.AddAsync(new SupportTicket(ticket));
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<TicketVM>> GetSupportTickets()
+        {
+            return await _context.SupportTickets.Include(s => s.User).Select(ticket => new TicketVM(ticket.User, ticket)).ToListAsync();
+        }
     }
 }
