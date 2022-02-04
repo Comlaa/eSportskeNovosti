@@ -74,15 +74,16 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
 
         public async Task MarkNotificationAsRead(int notificationId, int userId)
         {
-            var notification = _context.UserNotifications.Where(un => un.Id == notificationId &&
+            var notification = _context.UserNotifications.Where(un => un.NotificationId == notificationId &&
                                                                       un.UserId == userId).FirstOrDefault();
 
-            if (notification != null)
-            {
-                notification.Read = true;
-                _context.UserNotifications.Update(notification);
-                await _context.SaveChangesAsync();
-            }
+            if (notification == null)
+                throw new Exception("Notifikacija ne postoji u bazi za ovog korisnika.");
+
+
+            notification.Read = true;
+            _context.UserNotifications.Update(notification);
+            await _context.SaveChangesAsync();
         }
     }
 }
