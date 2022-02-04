@@ -10,7 +10,7 @@ namespace ESN_WinForm.Forms
         {
             InitializeComponent();
             var datum = DateTime.Now.ToString("f");
-            Datum.Text = datum.Remove(datum.Length - 5);
+            Datum.Text = datum.Remove(datum.Length - 7);
         }
 
         private void VijestiBtn_Click(object sender, EventArgs e)

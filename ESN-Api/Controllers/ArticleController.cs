@@ -58,6 +58,7 @@ namespace ESN_Api.Controllers
             return await _articleRepository.GetArticleByTitle(title);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("article")]
         public async Task DeleteArticle(int articleId)
         {

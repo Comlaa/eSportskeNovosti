@@ -26,6 +26,7 @@ namespace ESN_WinForm.Helpers
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + SvcCredentials);
                 return await BaseHttpClient(client.PutAsJsonAsync(baseUrl + endpoint, data));
             }
         }
@@ -34,6 +35,7 @@ namespace ESN_WinForm.Helpers
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + SvcCredentials);
                 return await BaseHttpClient(client.PostAsJsonAsync(baseUrl + endpoint, data));
             }
         }
@@ -42,6 +44,7 @@ namespace ESN_WinForm.Helpers
         {
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Add("Authorization", "Basic " + SvcCredentials);
                 await client.DeleteAsync(baseUrl + endpoint + parameter);
             }
         }
