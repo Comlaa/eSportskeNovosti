@@ -1,4 +1,4 @@
-﻿namespace ESN_Api.ESN_Api.dal.DTO
+﻿namespace ESN_WinForm.Services
 {
     public class FixtureDTO
     {

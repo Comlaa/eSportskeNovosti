@@ -58,5 +58,13 @@ namespace ESN_WinForm.Forms
             form.ShowDialog();
             Show();
         }
+
+        private void FixturesBtn_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FixtureForm form = new FixtureForm();
+            form.ShowDialog();
+            Show();
+        }
     }
 }

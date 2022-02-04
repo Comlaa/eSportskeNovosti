@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\CategoryDTO.cs" />
+    <Compile Include="DTO\FixtureDTO.cs" />
     <Compile Include="DTO\RoleDTO.cs" />
     <Compile Include="Forms\ArticlesForm.cs">
       <SubType>Form</SubType>
@@ -87,6 +88,12 @@
     </Compile>
     <Compile Include="Forms\Categories\EditCategory.Designer.cs">
       <DependentUpon>EditCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FixtureForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FixtureForm.Designer.cs">
+      <DependentUpon>FixtureForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\HomeForm.cs">
       <SubType>Form</SubType>
@@ -135,6 +142,7 @@
     <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\ArticleService.cs" />
+    <Compile Include="Services\FixtureService.cs" />
     <Compile Include="Services\RoleService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
@@ -152,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Categories\EditCategory.resx">
       <DependentUpon>EditCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FixtureForm.resx">
+      <DependentUpon>FixtureForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>

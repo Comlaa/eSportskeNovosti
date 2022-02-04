@@ -26,6 +26,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
         {
             return await _context.Fixtures.Include(f => f.Category)
                                           .Select(f => new FixtureVM(f, f.Category.Name))
+                                          .Take(50)
                                           .ToListAsync();
         }
 

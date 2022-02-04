@@ -22,7 +22,7 @@ namespace ESN_Api.ESN_Api.dal.Domain
             Team2 = fixture.Team2;
             Result = fixture.Result;
             CategoryId = fixture.CategoryId;
-            MatchTime = fixture.MatchTime;
+            MatchTime = DateTime.Now;
         }
     }
 }
