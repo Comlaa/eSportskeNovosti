@@ -33,7 +33,7 @@ namespace ESN_Api.ESN_Api.dal.Repositories.Default
             if (role != null)
             {
                 role.Name = _role.Name;
-                role.Permissions = _role.Permissions;
+                role.Description = _role.Description;
 
                 _context.Roles.Update(role);
                 await _context.SaveChangesAsync();

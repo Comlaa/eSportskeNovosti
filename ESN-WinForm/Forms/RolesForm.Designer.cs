@@ -109,9 +109,9 @@
             this.label4.Location = new System.Drawing.Point(50, 477);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 20);
+            this.label4.Size = new System.Drawing.Size(129, 30);
             this.label4.TabIndex = 72;
-            this.label4.Text = "Permisije";
+            this.label4.Text = "Deskripcija";
             // 
             // label5
             // 
