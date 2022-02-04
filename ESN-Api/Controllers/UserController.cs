@@ -17,7 +17,7 @@ namespace ESN_Api.Controllers
             _userRepository = userRepository;
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, Editor")]
         [HttpGet("users")]
         public async Task<List<UserVM>> GetUsers()
         {
@@ -30,6 +30,7 @@ namespace ESN_Api.Controllers
             return await _userRepository.GetUserId(username);
         }
 
+        [Authorize(Roles = "Admin, Editor")]
         [HttpGet("users-by-username")]
         public async Task<List<UserVM>> GetUsersByUsername(string username)
         {
@@ -55,7 +56,7 @@ namespace ESN_Api.Controllers
             return await _userRepository.GetUserById(userId);
         }
 
-
+        [Authorize(Roles = "Admin, Editor")]
         [HttpPut("user")]
         public async Task<bool> EditUser(UserVM user)
         {
