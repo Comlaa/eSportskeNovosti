@@ -112,6 +112,12 @@
     <Compile Include="Forms\Roles\EditRole.Designer.cs">
       <DependentUpon>EditRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SupportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SupportForm.Designer.cs">
+      <DependentUpon>SupportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UsersForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Roles\EditRole.resx">
       <DependentUpon>EditRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SupportForm.resx">
+      <DependentUpon>SupportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UsersForm.resx">
       <DependentUpon>UsersForm.cs</DependentUpon>

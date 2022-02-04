@@ -39,7 +39,7 @@
             this.Datum = new System.Windows.Forms.Label();
             this.OdjaviBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SupportTicketBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,18 +185,19 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
+            // SupportTicketBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(79, 603);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(434, 77);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Podrška korisnicima";
-            this.button1.UseVisualStyleBackColor = false;
+            this.SupportTicketBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(150)))), ((int)(((byte)(190)))));
+            this.SupportTicketBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.SupportTicketBtn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.SupportTicketBtn.Location = new System.Drawing.Point(79, 603);
+            this.SupportTicketBtn.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SupportTicketBtn.Name = "SupportTicketBtn";
+            this.SupportTicketBtn.Size = new System.Drawing.Size(434, 77);
+            this.SupportTicketBtn.TabIndex = 20;
+            this.SupportTicketBtn.Text = "Podrška korisnicima";
+            this.SupportTicketBtn.UseVisualStyleBackColor = false;
+            this.SupportTicketBtn.Click += new System.EventHandler(this.SupportTicketBtn_Click);
             // 
             // HomeForm
             // 
@@ -204,7 +205,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1274, 754);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SupportTicketBtn);
             this.Controls.Add(this.OdjaviBtn);
             this.Controls.Add(this.Datum);
             this.Controls.Add(this.label4);
@@ -239,6 +240,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label Datum;
         private System.Windows.Forms.Button OdjaviBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SupportTicketBtn;
     }
 }
