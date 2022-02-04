@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ArticlesForm));
             this.VijestiTabela = new System.Windows.Forms.DataGridView();
             this.DodajBtn = new System.Windows.Forms.Button();
             this.PretraziBtn = new System.Windows.Forms.PictureBox();
@@ -171,7 +170,7 @@
             this.Error.Location = new System.Drawing.Point(27, 649);
             this.Error.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Error.Name = "Error";
-            this.Error.Size = new System.Drawing.Size(608, 30);
+            this.Error.Size = new System.Drawing.Size(405, 20);
             this.Error.TabIndex = 38;
             this.Error.Text = "Dodavanje notifikacije nije uspjelo. Pokušajte ponovo.";
             // 
@@ -183,7 +182,7 @@
             this.Success.Location = new System.Drawing.Point(27, 629);
             this.Success.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Success.Name = "Success";
-            this.Success.Size = new System.Drawing.Size(345, 30);
+            this.Success.Size = new System.Drawing.Size(230, 20);
             this.Success.TabIndex = 39;
             this.Success.Text = "Notifikacija uspješno poslana.";
             // 
@@ -204,7 +203,6 @@
             this.Controls.Add(this.DodajBtn);
             this.Controls.Add(this.PretraziBtn);
             this.Controls.Add(this.SearchBox);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ArticlesForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ArticlesForm";
